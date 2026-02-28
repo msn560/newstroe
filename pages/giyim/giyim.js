@@ -39,16 +39,7 @@
   function applyFiltersAndSort() {
     var form = document.getElementById('filter-form');
     var filters = form && window.getActiveFilters ? getActiveFilters(form) : {};
-    currentFiltered = sampleProducts.filter(function (p) {
-      if (filters.min_fiyat && p.price < parseFloat(filters.min_fiyat)) return false;
-      if (filters.max_fiyat && p.price > parseFloat(filters.max_fiyat)) return false;
-      var m = filters.marka;
-      if (m && (Array.isArray(m) ? m.length : m)) {
-        var arr = Array.isArray(m) ? m : [m];
-        if (arr.indexOf(p.brand) === -1) return false;
-      }
-      return true;
-    });
+    currentFiltered = window.filterProducts ? filterProducts(sampleProducts, filters) : sampleProducts;
     var sortVal = document.getElementById('sort-select') && document.getElementById('sort-select').value;
     if (sortVal && window.sortProducts) currentFiltered = sortProducts(sortVal, currentFiltered);
     currentPage = 1;

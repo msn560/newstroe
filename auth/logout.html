@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Çıkış Yapılıyor — Mağaza</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <script>
+    (function() {
+      try {
+        localStorage.removeItem('eticaret_user');
+      } catch (e) {}
+      if (typeof Swal !== 'undefined') {
+        Swal.fire({
+          icon: 'info',
+          title: 'Çıkış Yapıldı',
+          text: 'Güle güle!',
+          timer: 1000,
+          showConfirmButton: false,
+          timerProgressBar: true
+        }).then(function() {
+          window.location.href = 'login.html';
+        });
+      } else {
+        window.location.href = 'login.html';
+      }
+    })();
+  </script>
+  <p style="text-align:center;padding:2rem;">Yönlendiriliyorsunuz...</p>
+</body>
+</html>

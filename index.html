@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="assets/css/shop-pages.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="page-wrapper home-page">
   <div id="header-placeholder"></div>
@@ -52,6 +53,41 @@
             <button type="button" id="hero-next" aria-label="Sonraki">›</button>
           </div>
           <div class="hero-slider__dots" id="hero-dots" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features-bar">
+      <div class="container">
+        <div class="features-grid">
+          <a href="pages/giyim/index.html" class="feature-card">
+            <span class="feature-card__icon">🚚</span>
+            <div>
+              <h3 class="feature-card__title">Ücretsiz Kargo</h3>
+              <p class="feature-card__desc">150 TL üzeri siparişlerde ücretsiz kargo imkanı.</p>
+            </div>
+          </a>
+          <a href="#" class="feature-card">
+            <span class="feature-card__icon">🔄</span>
+            <div>
+              <h3 class="feature-card__title">Kolay İade</h3>
+              <p class="feature-card__desc">14 gün içinde ücretsiz iade ve değişim.</p>
+            </div>
+          </a>
+          <a href="#" class="feature-card">
+            <span class="feature-card__icon">🔒</span>
+            <div>
+              <h3 class="feature-card__title">Güvenli Ödeme</h3>
+              <p class="feature-card__desc">256-bit SSL ile güvenli alışveriş.</p>
+            </div>
+          </a>
+          <a href="#" class="feature-card">
+            <span class="feature-card__icon">💬</span>
+            <div>
+              <h3 class="feature-card__title">7/24 Destek</h3>
+              <p class="feature-card__desc">Müşteri hizmetleri her zaman yanınızda.</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -109,6 +145,153 @@
         <div class="grid-4" id="vitrin-yeni"></div>
       </div>
     </section>
+
+    <section class="section flash-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>⚡ Flash İndirim</h2>
+          <div class="flash-countdown" id="flash-countdown">
+            <span><span id="flash-h">02</span>s</span>
+            <span><span id="flash-m">45</span>d</span>
+            <span><span id="flash-s">30</span>sn</span>
+          </div>
+        </div>
+        <div class="grid-4" id="vitrin-flash"></div>
+      </div>
+    </section>
+
+    <section class="section middle-banner-section">
+      <div class="container">
+        <a href="pages/giyim/index.html" class="card middle-banner">
+          <div class="middle-banner__content">
+            <span class="middle-banner__eyebrow">Özel Kampanya</span>
+            <h2 class="middle-banner__title">Yaz Koleksiyonu %40'a Varan İndirim</h2>
+            <p class="middle-banner__text">Seçili ürünlerde geçerli. Hemen keşfedin.</p>
+            <span class="btn btn-primary">Alışverişe Başla</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section recommended-categories">
+      <div class="container">
+        <div class="section-head"><h2>Önerilen Kategoriler</h2></div>
+        <div class="category-mini-grid">
+          <div class="category-mini">
+            <h3 class="category-mini__title">Giyim</h3>
+            <div class="grid-4 category-mini__products" id="rec-giyim"></div>
+            <a href="pages/giyim/index.html" class="link-accent">Tümünü Gör →</a>
+          </div>
+          <div class="category-mini">
+            <h3 class="category-mini__title">Market</h3>
+            <div class="grid-4 category-mini__products" id="rec-market"></div>
+            <a href="pages/market/index.html" class="link-accent">Tümünü Gör →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item card">
+            <div class="stat-item__value">50K+</div>
+            <div class="stat-item__label">Mutlu Müşteri</div>
+          </div>
+          <div class="stat-item card">
+            <div class="stat-item__value">10K+</div>
+            <div class="stat-item__label">Ürün Çeşidi</div>
+          </div>
+          <div class="stat-item card">
+            <div class="stat-item__value">%98</div>
+            <div class="stat-item__label">Memnuniyet</div>
+          </div>
+          <div class="stat-item card">
+            <div class="stat-item__value">24/7</div>
+            <div class="stat-item__label">Destek</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section trust-section">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-badge">
+            <span class="trust-badge__icon">📦</span>
+            <span>Hızlı Teslimat</span>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-badge__icon">🛡️</span>
+            <span>SSL Güvenlik</span>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-badge__icon">💳</span>
+            <span>Güvenli Ödeme</span>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-badge__icon">✅</span>
+            <span>Orijinal Ürün</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Müşteri Yorumları</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card card">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <p class="testimonial-card__text">"Çok hızlı kargo, ürün tam istediğim gibi. Kesinlikle tekrar alışveriş yapacağım."</p>
+            <div class="testimonial-card__author">
+              <span class="avatar avatar--sm">AY</span>
+              <div>
+                <strong>Ayşe Y.</strong>
+                <span class="testimonial-card__meta">İstanbul</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card card">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <p class="testimonial-card__text">"Fiyat/performans açısından mükemmel. Müşteri hizmetleri de çok ilgili."</p>
+            <div class="testimonial-card__author">
+              <span class="avatar avatar--sm">MK</span>
+              <div>
+                <strong>Mehmet K.</strong>
+                <span class="testimonial-card__meta">Ankara</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card card">
+            <div class="testimonial-card__stars">★★★★☆</div>
+            <p class="testimonial-card__text">"Genel olarak memnunum. Kargo biraz gecikmeli geldi ama ürün kaliteli."</p>
+            <div class="testimonial-card__author">
+              <span class="avatar avatar--sm">EZ</span>
+              <div>
+                <strong>Elif Z.</strong>
+                <span class="testimonial-card__meta">İzmir</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section newsletter-section">
+      <div class="container">
+        <div class="cta-box newsletter-box">
+          <h2 class="cta-box__title">Kampanyalardan Haberdar Olun</h2>
+          <p class="cta-box__text">E-bültenimize abone olun, özel indirimler ve fırsatlardan ilk siz haberdar olun.</p>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" class="input newsletter-input" placeholder="E-posta adresiniz" required>
+            <button type="submit" class="btn btn-primary">Abone Ol</button>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div id="footer-placeholder"></div>
@@ -134,6 +317,7 @@
       if (document.getElementById('footer-placeholder')) {
         fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) {
           document.getElementById('footer-placeholder').innerHTML = html;
+          if (window.fixFooterLinks) fixFooterLinks(base);
           if (window.initFooterAccordion) initFooterAccordion();
         }).catch(function () {});
       }
@@ -147,6 +331,29 @@
       if (window.renderProductCards) {
         renderProductCards('vitrin-cok-satan', vitrinData, 'components/product-card.html');
         renderProductCards('vitrin-yeni', vitrinData.slice(0, 4), 'components/product-card.html');
+        renderProductCards('vitrin-flash', vitrinData.filter(function(p){ return p.discount >= 20; }).slice(0, 4), 'components/product-card.html');
+        renderProductCards('rec-giyim', vitrinData.slice(0, 4), 'components/product-card.html');
+        renderProductCards('rec-market', vitrinData.slice(0, 4), 'components/product-card.html');
+      }
+      (function(){
+        var h=2,m=45,s=30;
+        var elH=document.getElementById('flash-h'),elM=document.getElementById('flash-m'),elS=document.getElementById('flash-s');
+        if(!elH)return;
+        setInterval(function(){
+          s--;if(s<0){s=59;m--;}if(m<0){m=59;h--;}if(h<0){h=2;m=45;s=30;}
+          elH.textContent=String(h).padStart(2,'0');
+          elM.textContent=String(m).padStart(2,'0');
+          elS.textContent=String(s).padStart(2,'0');
+        },1000);
+      })();
+      var newsletterForm = document.getElementById('newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (window.showToast) showToast('Aboneliğiniz alındı! Teşekkürler.', 'success');
+          else if (typeof Swal !== 'undefined') Swal.fire({ icon: 'success', title: 'Teşekkürler!', text: 'E-bülten aboneliğiniz alındı.', confirmButtonColor: '#ea580c' });
+          newsletterForm.reset();
+        });
       }
     });
   </script>

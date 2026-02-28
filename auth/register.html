@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Üye Ol — Mağaza</title>
+  <meta name="description" content="Yeni hesap oluşturun.">
+  <link rel="stylesheet" href="../assets/css/root.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/auth.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="page-wrapper auth-page">
+  <div id="header-placeholder"></div>
+
+  <main class="auth-main">
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-card__header">
+          <h1 class="auth-title">Üye Ol</h1>
+          <p class="auth-subtitle">Hemen ücretsiz hesap oluşturun ve alışverişe başlayın</p>
+        </div>
+        <form class="auth-form" id="register-form">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="input-label" for="name">Ad</label>
+              <input type="text" id="name" name="name" class="input" placeholder="Adınız" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label class="input-label" for="surname">Soyad</label>
+              <input type="text" id="surname" name="surname" class="input" placeholder="Soyadınız" required autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="input-label" for="reg-email">E-posta</label>
+            <input type="email" id="reg-email" name="email" class="input" placeholder="ornek@email.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="input-label" for="reg-password">Şifre</label>
+            <input type="password" id="reg-password" name="password" class="input" placeholder="En az 6 karakter" required autocomplete="new-password" minlength="6">
+          </div>
+          <div class="form-group">
+            <label class="input-label" for="reg-password-confirm">Şifre Tekrar</label>
+            <input type="password" id="reg-password-confirm" name="password_confirm" class="input" placeholder="Şifrenizi tekrar girin" required>
+          </div>
+          <label class="checkbox-label form-group">
+            <input type="checkbox" name="terms" required>
+            <span><a href="#" class="link-accent">Kullanım koşullarını</a> ve <a href="#" class="link-accent">gizlilik politikasını</a> okudum, kabul ediyorum.</span>
+          </label>
+          <button type="submit" class="btn btn-primary btn-lg auth-submit">Üye Ol</button>
+        </form>
+        <div class="auth-footer">
+          <p>Zaten hesabınız var mı? <a href="login.html" class="link-accent">Giriş Yap</a></p>
+        </div>
+      </div>
+      <div class="auth-decoration">
+        <div class="auth-decoration__content">
+          <span class="auth-decoration__icon">🎁</span>
+          <h2>Üyelik Avantajları</h2>
+          <ul class="auth-benefits">
+            <li>✓ Ücretsiz kargo fırsatları</li>
+            <li>✓ Özel indirimler ve kampanyalar</li>
+            <li>✓ Sipariş takibi</li>
+            <li>✓ Favori ürünler listeniz</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../assets/js/common.js" defer></script>
+  <script src="../assets/js/auth.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var base = '../';
+      fetch(base + 'components/header.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        if (window.fixHeaderLinks) fixHeaderLinks(base);
+        if (window.updateHeaderBadges) updateHeaderBadges();
+        if (window.updateThemeToggleLabel) updateThemeToggleLabel();
+        var h = document.getElementById('hamburger-btn');
+        if (h) h.addEventListener('click', toggleMenu);
+      }).catch(function () {});
+      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('footer-placeholder').innerHTML = html;
+        if (window.fixFooterLinks) fixFooterLinks(base);
+      }).catch(function () {});
+    });
+  </script>
+</body>
+</html>
