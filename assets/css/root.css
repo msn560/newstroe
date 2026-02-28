@@ -1,0 +1,139 @@
+/* Modern e-ticaret tasarım sistemi — tek merkez */
+:root {
+  /* Renkler — tutarlı kontrast */
+  --ana-renk:     #c2410c;
+  --ana-hover:    #9a3412;
+  --ana-soft:     rgba(194, 65, 12, 0.08);
+  --ana-soft-2:   rgba(194, 65, 12, 0.12);
+  --arka:         #fafafa;
+  --surface:      #ffffff;
+  --surface-hover:#f5f5f5;
+  --yazi:         #18181b;
+  --yazi-acik:    #52525b;
+  --yazi-muted:   #71717a;
+  --beyaz:        #ffffff;
+  --gri:          #71717a;
+  --gri-acik:     #f4f4f5;
+  --border:       #e4e4e7;
+  --border-strong:#d4d4d8;
+  --hata:         #b91c1c;
+  --hata-soft:    rgba(185, 28, 28, 0.1);
+  --basari:       #15803d;
+  --basari-soft:  rgba(21, 128, 61, 0.1);
+  --uyari:        #c2410c;
+  --uyari-soft:   rgba(194, 65, 12, 0.1);
+
+  /* Dark mode */
+  --dk-arka:      #09090b;
+  --dk-surface:   #18181b;
+  --dk-yazi:      #fafafa;
+  --dk-border:    #27272a;
+
+  /* Tipografi — okunaklı hiyerarşi */
+  --font:         'Nunito', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    ui-monospace, monospace;
+  --font-size-xs:  0.75rem;
+  --font-size-sm:  0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg:  1.125rem;
+  --font-size-xl:  1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --leading-tight:  1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+
+  /* Boşluklar — 4px taban */
+  --padding-xs:   4px;
+  --padding-sm:   8px;
+  --padding:      12px;
+  --padding-md:   16px;
+  --padding-lg:   24px;
+  --padding-xl:   32px;
+  --padding-2xl:  48px;
+  --margin-xs:    4px;
+  --margin-sm:    8px;
+  --margin:       12px;
+  --margin-md:    16px;
+  --margin-lg:    24px;
+  --margin-xl:    32px;
+  --margin-2xl:   48px;
+
+  /* Border */
+  --border-width:  1px;
+  --border-width-2: 2px;
+
+  /* Radius — yumuşak köşeler */
+  --radius-sm:    6px;
+  --radius:       10px;
+  --radius-lg:    12px;
+  --radius-xl:    16px;
+  --radius-2xl:   24px;
+  --radius-full:  9999px;
+
+  /* Gölgeler — katmanlı, minimal */
+  --shadow-xs:    0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm:    0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow:       0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-md:    0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-lg:    0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 12px 24px -8px rgba(194, 65, 12, 0.2);
+  --shadow-focus: 0 0 0 3px var(--ana-soft-2);
+
+  /* Geçişler */
+  --transition:      all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast:   0.15s;
+  --duration-normal: 0.2s;
+  --duration-slow:   0.25s;
+
+  /* Layout */
+  --container-max:  1280px;
+  --header-height:  64px;
+  --sidebar-width:  280px;
+}
+
+[data-theme="dark"] {
+  --arka:     var(--dk-arka);
+  --beyaz:    var(--dk-surface);
+  --yazi:     var(--dk-yazi);
+  --border:   var(--dk-border);
+  --gri-acik: #27272a;
+}
+
+/* Temel sayfa tipografi */
+body {
+  font-family: var(--font);
+  font-size: var(--font-size-base);
+  line-height: var(--leading-normal);
+  color: var(--yazi);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--yazi);
+}
+a { color: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition:     none;
+    --transition-fast: none;
+    --transition-slow: none;
+    --duration-fast:  0.01ms;
+    --duration-normal: 0.01ms;
+    --duration-slow:  0.01ms;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

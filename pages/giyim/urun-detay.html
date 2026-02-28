@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ürün Detay — Mağaza</title>
+  <meta name="description" content="Ürün detayı.">
+  <link rel="stylesheet" href="../../assets/css/root.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: var(--font); color: var(--yazi); margin: 0; }</style>
+</head>
+<body class="page-wrapper">
+  <div id="header-placeholder"></div>
+
+  <main class="section">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Ana Sayfa</a>
+        <span class="breadcrumb__sep">›</span>
+        <a href="index.html">Giyim</a>
+        <span class="breadcrumb__sep">›</span>
+        <span id="breadcrumb-title">Ürün</span>
+      </nav>
+
+      <div class="product-detail" id="product-detail">
+        <div class="product-detail__gallery">
+          <div class="product-detail__main-img" id="main-img-wrap">
+            <img id="main-img" src="" alt="" width="600" height="600">
+          </div>
+          <div class="product-detail__thumbs" id="product-thumbs"></div>
+        </div>
+        <div class="product-detail__info">
+          <p class="product-detail__meta-row"><a href="index.html" id="product-brand" class="tag"></a></p>
+          <h1 id="product-title"></h1>
+          <div class="rating"><span class="rating__stars" id="product-rating"></span><span class="rating__count" id="product-review-count"></span></div>
+          <hr style="border: none; border-top: 1px solid var(--border); margin: var(--margin) 0;">
+          <div class="product-detail__price-wrap">
+            <span class="product-detail__price-old" id="product-price-old"></span>
+            <span class="product-detail__price" id="product-price"></span>
+            <span class="badge badge-danger" id="product-badge"></span>
+          </div>
+          <p class="product-detail__meta-row" id="product-stock"></p>
+          <p class="product-detail__meta-row"><strong>Beden:</strong> <span id="product-beden">S, M, L, XL</span></p>
+          <p class="product-detail__meta-row"><strong>Renk:</strong> <span id="product-renk">Seçiniz</span></p>
+          <div class="product-detail__qty-wrap">
+            <label>Adet:</label>
+            <button type="button" class="btn btn-outline btn-sm" id="qty-minus" aria-label="Azalt">−</button>
+            <input type="number" class="input" id="product-qty" value="1" min="1" max="99" aria-label="Adet">
+            <button type="button" class="btn btn-outline btn-sm" id="qty-plus" aria-label="Artır">+</button>
+          </div>
+          <div class="product-detail__actions">
+            <button type="button" class="btn btn-primary btn-lg" id="btn-add-cart">Sepete Ekle</button>
+            <a href="../../checkout.html" class="btn btn-outline btn-lg" id="btn-buy-now">Hemen Satın Al</a>
+          </div>
+          <p class="product-detail__meta-row">❤ <a href="../../user/favoriler.html" class="link-accent">Favorilere Ekle</a></p>
+          <p class="product-detail__meta-row">Ücretsiz kargo · Tahmini teslimat 2-4 iş günü</p>
+          <p class="product-detail__meta-row">14 gün içinde iade garantisi</p>
+        </div>
+      </div>
+
+      <div class="tabs" id="product-tabs">
+        <div class="tabs__nav" role="tablist">
+          <button type="button" role="tab" class="tabs__nav-btn is-active" data-tab="aciklama">Açıklama</button>
+          <button type="button" role="tab" class="tabs__nav-btn" data-tab="ozellikler">Teknik Özellikler</button>
+          <button type="button" role="tab" class="tabs__nav-btn" data-tab="yorumlar">Yorumlar</button>
+        </div>
+        <div id="panel-aciklama" class="tabs__panel is-active" role="tabpanel"><p id="tab-aciklama"></p></div>
+        <div id="panel-ozellikler" class="tabs__panel" role="tabpanel"><table id="tab-ozellikler"></table></div>
+        <div id="panel-yorumlar" class="tabs__panel" role="tabpanel"><p class="checkout-ozet">Yorumlar burada listelenecek. Giriş yaparak yorum yazabilirsiniz.</p></div>
+      </div>
+
+      <div class="section-head" style="margin-top: var(--margin-xl);">
+        <h2>Benzer Ürünler</h2>
+      </div>
+      <div class="grid-4" id="similar-products"></div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="giyim-data.js" defer></script>
+  <script src="../../assets/js/common.js" defer></script>
+  <script src="../../assets/js/cart.js" defer></script>
+  <script src="urun-detay.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var base = '../../';
+      fetch(base + 'components/header.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        if (window.fixHeaderLinks) fixHeaderLinks(base);
+        if (window.updateHeaderBadges) updateHeaderBadges();
+        if (window.updateThemeToggleLabel) updateThemeToggleLabel();
+        var h = document.getElementById('hamburger-btn');
+        if (h) h.addEventListener('click', toggleMenu);
+      }).catch(function () {});
+      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      }).catch(function () {});
+    });
+  </script>
+</body>
+</html>

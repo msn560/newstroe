@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kullanıcılar — Admin</title>
+  <link rel="stylesheet" href="../assets/css/root.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-wrapper admin-page">
+  <div id="header-placeholder"></div>
+  <main class="section">
+    <div class="container">
+      <div class="user-layout">
+        <div id="admin-sidebar-placeholder"></div>
+        <div class="user-main">
+          <h1 class="page-title">Kullanıcılar</h1>
+          <p style="margin: 0 0 var(--margin-lg); color: var(--yazi-muted); font-size: var(--font-size-sm);">Kayıtlı üyeleri görüntüleyin ve yönetin.</p>
+          <div class="admin-toolbar">
+            <input type="search" class="input" placeholder="Ad veya e-posta ara..." style="max-width: 260px;">
+          </div>
+          <div class="card table-card">
+            <table class="user-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Ad Soyad</th>
+                  <th>E-posta</th>
+                  <th>Kayıt Tarihi</th>
+                  <th>Sipariş</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>101</td>
+                  <td>Ayşe Yılmaz</td>
+                  <td>ayse@email.com</td>
+                  <td>15.01.2025</td>
+                  <td>8</td>
+                </tr>
+                <tr>
+                  <td>102</td>
+                  <td>Mehmet Demir</td>
+                  <td>mehmet@email.com</td>
+                  <td>18.01.2025</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>103</td>
+                  <td>Zeynep Kaya</td>
+                  <td>zeynep@email.com</td>
+                  <td>22.01.2025</td>
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <td>104</td>
+                  <td>Ali Öz</td>
+                  <td>ali@email.com</td>
+                  <td>25.01.2025</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>105</td>
+                  <td>Fatma Çelik</td>
+                  <td>fatma@email.com</td>
+                  <td>02.02.2025</td>
+                  <td>5</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="../assets/js/common.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var base = '../';
+      fetch(base + 'components/header.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        if (window.fixHeaderLinks) fixHeaderLinks(base);
+        if (window.updateHeaderBadges) updateHeaderBadges();
+        if (window.updateThemeToggleLabel) updateThemeToggleLabel();
+        document.getElementById('hamburger-btn') && document.getElementById('hamburger-btn').addEventListener('click', toggleMenu);
+      }).catch(function () {});
+      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) { document.getElementById('footer-placeholder').innerHTML = html; }).catch(function () {});
+      fetch(base + 'components/admin-sidebar.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('admin-sidebar-placeholder').innerHTML = html;
+        document.querySelector('.user-nav a[data-admin-page="kullanicilar"]') && document.querySelector('.user-nav a[data-admin-page="kullanicilar"]').classList.add('is-active');
+      }).catch(function () {});
+    });
+  </script>
+</body>
+</html>

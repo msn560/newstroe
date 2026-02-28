@@ -1,0 +1,58 @@
+<div class="header-top">
+  Ücretsiz kargo 150 TL üzeri siparişlerde!
+</div>
+
+<header class="header">
+  <div class="container">
+    <a href="index.html" class="header-logo" aria-label="Ana sayfa">
+      <strong class="header-logo__text">Mağaza</strong>
+    </a>
+
+    <form class="header-search" action="pages/giyim/index.html" method="get" role="search">
+      <select class="input header-search__select" name="kategori" aria-label="Kategori">
+        <option value="">Tüm Kategoriler</option>
+        <option value="giyim">Giyim</option>
+        <option value="market">Market</option>
+        <option value="esya">Eşya</option>
+        <option value="ikinci_el">İkinci El</option>
+        <option value="hesap">Hesap</option>
+        <option value="kupon">Kupon</option>
+        <option value="altin">Altın</option>
+        <option value="maden">Maden</option>
+      </select>
+      <input type="search" class="input header-search__input" name="q" placeholder="Ürün veya marka ara..." aria-label="Arama">
+      <button type="submit" class="btn btn-primary" aria-label="Ara">🔍</button>
+    </form>
+
+    <div class="header-actions">
+      <button type="button" id="theme-toggle" class="header-action" aria-label="Koyu mod / Açık mod" title="Tema değiştir">🌙</button>
+      <a href="user/favoriler.html" class="header-action" aria-label="Favorilerim">
+        <span aria-hidden="true">❤</span>
+        <span class="badge badge-danger header-badge" id="header-fav-count">0</span>
+      </a>
+      <a href="cart.html" class="header-action" aria-label="Sepetim">
+        <span aria-hidden="true">🛒</span>
+        <span class="badge badge-info header-badge" id="header-cart-count">0</span>
+      </a>
+      <a href="user/index.html" class="btn btn-outline btn-sm">Giriş Yap</a>
+      <a href="user/hesaplarim.html" class="btn btn-primary btn-sm">Üye Ol</a>
+    </div>
+
+    <button type="button" class="hamburger" id="hamburger-btn" aria-label="Menüyü aç">☰</button>
+  </div>
+
+  <nav class="header-menu" id="header-menu" aria-label="Ana menü">
+    <div class="container">
+      <ul class="header-nav">
+        <li><a href="pages/giyim/index.html">Giyim</a></li>
+        <li><a href="pages/market/index.html">Market</a></li>
+        <li><a href="pages/esya/index.html">Eşya</a></li>
+        <li><a href="pages/ikinci_el/index.html">İkinci El</a></li>
+        <li><a href="pages/hesap/index.html">Hesap</a></li>
+        <li><a href="pages/kupon/index.html">Kupon</a></li>
+        <li><a href="pages/altin/index.html">Altın</a></li>
+        <li><a href="pages/maden/index.html">Maden</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorilerim — Mağaza</title>
+  <link rel="stylesheet" href="../assets/css/root.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: var(--font); color: var(--yazi); margin: 0; }</style>
+</head>
+<body class="page-wrapper">
+  <div id="header-placeholder"></div>
+  <main class="section">
+    <div class="container">
+      <div class="user-layout">
+        <div id="user-sidebar-placeholder"></div>
+        <div class="user-main">
+          <h1 class="page-title">Favorilerim</h1>
+          <div class="grid-4" id="favori-listesi"><p class="vitrin-placeholder">Favori ürün bulunmuyor.</p></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="../assets/js/common.js" defer></script>
+  <script src="../assets/js/cart.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var base = '../';
+      fetch(base + 'components/header.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        if (window.fixHeaderLinks) fixHeaderLinks(base);
+        if (window.updateHeaderBadges) updateHeaderBadges();
+        if (window.updateThemeToggleLabel) updateThemeToggleLabel();
+        document.getElementById('hamburger-btn') && document.getElementById('hamburger-btn').addEventListener('click', toggleMenu);
+      }).catch(function () {});
+      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) { document.getElementById('footer-placeholder').innerHTML = html; }).catch(function () {});
+      fetch(base + 'components/user-sidebar.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('user-sidebar-placeholder').innerHTML = html;
+        document.querySelector('.user-nav a[data-user-page="favoriler"]') && document.querySelector('.user-nav a[data-user-page="favoriler"]').classList.add('is-active');
+      }).catch(function () {});
+    });
+  </script>
+</body>
+</html>

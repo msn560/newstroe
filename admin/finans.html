@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finans — Admin</title>
+  <link rel="stylesheet" href="../assets/css/root.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-wrapper admin-page">
+  <div id="header-placeholder"></div>
+  <main class="section">
+    <div class="container">
+      <div class="user-layout">
+        <div id="admin-sidebar-placeholder"></div>
+        <div class="user-main">
+          <h1 class="page-title">Finans</h1>
+          <p style="margin: 0 0 var(--margin-lg); color: var(--yazi-muted); font-size: var(--font-size-sm);">Gelir ve sipariş özeti. Tarih aralığına göre filtreleyebilirsiniz.</p>
+          <div class="admin-toolbar">
+            <input type="date" class="input" style="width: auto;">
+            <span style="color: var(--yazi-muted);">–</span>
+            <input type="date" class="input" style="width: auto;">
+            <button type="button" class="btn btn-primary btn-sm">Uygula</button>
+          </div>
+          <div class="stat-cards" style="margin-top: var(--margin); margin-bottom: var(--margin-xl);">
+            <div class="card stat-card">
+              <div class="stat-card__value">48.250 TL</div>
+              <div class="stat-card__label">Toplam Gelir</div>
+            </div>
+            <div class="card stat-card stat-card--muted">
+              <div class="stat-card__value">124</div>
+              <div class="stat-card__label">Toplam Sipariş</div>
+            </div>
+            <div class="card stat-card stat-card--success">
+              <div class="stat-card__value">389 TL</div>
+              <div class="stat-card__label">Ort. Sepet</div>
+            </div>
+            <div class="card stat-card stat-card--warning">
+              <div class="stat-card__value">%3,2</div>
+              <div class="stat-card__label">İptal Oranı</div>
+            </div>
+          </div>
+          <div class="admin-section">
+            <h2 class="admin-section-title">Gelir Grafiği</h2>
+            <div class="card">
+              <div class="admin-chart-placeholder">
+                Günlük / haftalık / aylık gelir grafiği burada gösterilecek. (Chart.js, ApexCharts vb. entegre edilebilir)
+              </div>
+            </div>
+          </div>
+          <div class="admin-section">
+            <h2 class="admin-section-title">Kategori Bazlı Gelir (Örnek)</h2>
+            <div class="card table-card">
+              <table class="user-table">
+                <thead>
+                  <tr>
+                    <th>Kategori</th>
+                    <th>Satış Adedi</th>
+                    <th>Toplam (TL)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Giyim</td>
+                    <td>68</td>
+                    <td>22.140,00</td>
+                  </tr>
+                  <tr>
+                    <td>Market</td>
+                    <td>31</td>
+                    <td>8.520,00</td>
+                  </tr>
+                  <tr>
+                    <td>Eşya</td>
+                    <td>15</td>
+                    <td>12.450,00</td>
+                  </tr>
+                  <tr>
+                    <td>Diğer</td>
+                    <td>10</td>
+                    <td>5.140,00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="admin-quick-actions">
+            <button type="button" class="btn btn-outline btn-sm">Excel İndir</button>
+            <button type="button" class="btn btn-outline btn-sm">CSV İndir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="../assets/js/common.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var base = '../';
+      fetch(base + 'components/header.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        if (window.fixHeaderLinks) fixHeaderLinks(base);
+        if (window.updateHeaderBadges) updateHeaderBadges();
+        if (window.updateThemeToggleLabel) updateThemeToggleLabel();
+        document.getElementById('hamburger-btn') && document.getElementById('hamburger-btn').addEventListener('click', toggleMenu);
+      }).catch(function () {});
+      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) { document.getElementById('footer-placeholder').innerHTML = html; }).catch(function () {});
+      fetch(base + 'components/admin-sidebar.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('admin-sidebar-placeholder').innerHTML = html;
+        document.querySelector('.user-nav a[data-admin-page="finans"]') && document.querySelector('.user-nav a[data-admin-page="finans"]').classList.add('is-active');
+      }).catch(function () {});
+    });
+  </script>
+</body>
+</html>

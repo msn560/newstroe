@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mağaza — Alışverişin Adresi</title>
+  <meta name="description" content="Güvenli alışveriş, binlerce ürün. Giyim, market, eşya ve daha fazlası.">
+  <link rel="stylesheet" href="assets/css/root.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-wrapper">
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="hero section" aria-label="Kampanya slider">
+      <div class="container">
+        <div class="hero-slider" id="hero-slider">
+          <div class="hero-slider__track">
+            <div class="hero-slider__slide hero-slider__slide--1">
+              <div class="hero-slider__content">
+                <span class="hero-slider__eyebrow">Yeni Sezon</span>
+                <h2 class="hero-slider__title">İndirimde Ürünler</h2>
+                <p class="hero-slider__subtitle">150 TL üzeri siparişlerde ücretsiz kargo.</p>
+                <a href="pages/giyim/index.html" class="btn btn-primary btn-lg">Alışverişe Başla</a>
+              </div>
+            </div>
+            <div class="hero-slider__slide hero-slider__slide--2">
+              <div class="hero-slider__content">
+                <span class="hero-slider__eyebrow">Kampanya</span>
+                <h2 class="hero-slider__title">%30’a Varan İndirim</h2>
+                <p class="hero-slider__subtitle">Seçili giyim ürünlerinde geçerli.</p>
+                <a href="pages/giyim/index.html?yeni=1" class="btn btn-primary btn-lg">Keşfet</a>
+              </div>
+            </div>
+            <div class="hero-slider__slide hero-slider__slide--3">
+              <div class="hero-slider__content">
+                <span class="hero-slider__eyebrow">Yeni Gelenler</span>
+                <h2 class="hero-slider__title">Trend Ürünler Burada</h2>
+                <p class="hero-slider__subtitle">En çok tercih edilen markalar.</p>
+                <a href="pages/giyim/index.html" class="btn btn-primary btn-lg">İncele</a>
+              </div>
+            </div>
+          </div>
+          <div class="hero-slider__arrows" aria-hidden="true">
+            <button type="button" id="hero-prev" aria-label="Önceki">‹</button>
+            <button type="button" id="hero-next" aria-label="Sonraki">›</button>
+          </div>
+          <div class="hero-slider__dots" id="hero-dots" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="category-scroll">
+          <a href="pages/giyim/index.html" class="category-item card"><span class="category-item__icon">👕</span><span class="category-item__label">Giyim</span></a>
+          <a href="pages/market/index.html" class="category-item card"><span class="category-item__icon">🛒</span><span class="category-item__label">Market</span></a>
+          <a href="pages/esya/index.html" class="category-item card"><span class="category-item__icon">🪑</span><span class="category-item__label">Eşya</span></a>
+          <a href="pages/ikinci_el/index.html" class="category-item card"><span class="category-item__icon">♻</span><span class="category-item__label">İkinci El</span></a>
+          <a href="pages/hesap/index.html" class="category-item card"><span class="category-item__icon">🎮</span><span class="category-item__label">Hesap</span></a>
+          <a href="pages/kupon/index.html" class="category-item card"><span class="category-item__icon">🎫</span><span class="category-item__label">Kupon</span></a>
+          <a href="pages/altin/index.html" class="category-item card"><span class="category-item__icon">🥇</span><span class="category-item__label">Altın</span></a>
+          <a href="pages/maden/index.html" class="category-item card"><span class="category-item__icon">⛏</span><span class="category-item__label">Maden</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid-3 banner-grid">
+          <a href="pages/giyim/index.html" class="card banner-card banner-card--1">
+            <span class="banner-card__icon">👕</span>
+            <span class="banner-card__label">Giyim Kampanyaları</span>
+          </a>
+          <a href="pages/market/index.html" class="card banner-card banner-card--2">
+            <span class="banner-card__icon">🛒</span>
+            <span class="banner-card__label">Market Fırsatları</span>
+          </a>
+          <a href="pages/esya/index.html" class="card banner-card banner-card--3">
+            <span class="banner-card__icon">🪑</span>
+            <span class="banner-card__label">Eşya Koleksiyonu</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>En Çok Satanlar</h2>
+          <a href="pages/giyim/index.html">Tümünü Gör</a>
+        </div>
+        <div class="grid-4" id="vitrin-cok-satan"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Yeni Gelenler</h2>
+          <a href="pages/giyim/index.html?yeni=1">Tümünü Gör</a>
+        </div>
+        <div class="grid-4" id="vitrin-yeni"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="assets/js/common.js" defer></script>
+  <script src="assets/js/cart.js" defer></script>
+  <script src="assets/js/slider.js" defer></script>
+  <script src="assets/js/search.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var base = '';
+      if (document.getElementById('header-placeholder')) {
+        fetch(base + 'components/header.html').then(function (r) { return r.text(); }).then(function (html) {
+          document.getElementById('header-placeholder').innerHTML = html;
+          if (window.fixHeaderLinks) fixHeaderLinks(base);
+          if (window.updateHeaderBadges) updateHeaderBadges();
+          if (window.updateThemeToggleLabel) updateThemeToggleLabel();
+          if (window.initSearch) initSearch();
+          var h = document.getElementById('hamburger-btn');
+          if (h) h.addEventListener('click', toggleMenu);
+        }).catch(function () {});
+      }
+      if (document.getElementById('footer-placeholder')) {
+        fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) {
+          document.getElementById('footer-placeholder').innerHTML = html;
+          if (window.initFooterAccordion) initFooterAccordion();
+        }).catch(function () {});
+      }
+      if (window.initSlider) initSlider('#hero-slider', { autoplay: true, interval: 4000, dots: true, arrows: true });
+      var vitrinData = [
+        { id: 1, title: 'Basic Tişört', brand: 'Marka A', price: 149.99, priceOld: 199.99, discount: 25, rating: 4.2, reviewCount: 12, img: '', link: 'pages/giyim/urun-detay.html?id=1' },
+        { id: 2, title: 'Slim Fit Pantolon', brand: 'Marka B', price: 299, priceOld: 349, discount: 14, rating: 4.5, reviewCount: 8, img: '', link: 'pages/giyim/urun-detay.html?id=2' },
+        { id: 3, title: 'Sweatshirt Kapüşonlu', brand: 'Marka A', price: 399, priceOld: 499, discount: 20, rating: 4.8, reviewCount: 24, img: '', link: 'pages/giyim/urun-detay.html?id=3' },
+        { id: 4, title: 'Jean Ceket', brand: 'Marka C', price: 599, priceOld: 699, discount: 14, rating: 4.3, reviewCount: 6, img: '', link: 'pages/giyim/urun-detay.html?id=4' }
+      ];
+      if (window.renderProductCards) {
+        renderProductCards('vitrin-cok-satan', vitrinData, 'components/product-card.html');
+        renderProductCards('vitrin-yeni', vitrinData.slice(0, 4), 'components/product-card.html');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Admin</title>
+  <link rel="stylesheet" href="../assets/css/root.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-wrapper admin-page">
+  <div id="header-placeholder"></div>
+  <main class="section">
+    <div class="container">
+      <div class="user-layout">
+        <div id="admin-sidebar-placeholder"></div>
+        <div class="user-main">
+          <h1 class="page-title">Dashboard</h1>
+          <p style="margin: 0 0 var(--margin-lg); color: var(--yazi-muted); font-size: var(--font-size-sm);">Hoş geldiniz. Özet bilgiler ve son hareketler aşağıdadır.</p>
+
+          <div class="stat-cards">
+            <div class="card stat-card">
+              <div class="stat-card__value">2.450 TL</div>
+              <div class="stat-card__label">Günlük Gelir</div>
+            </div>
+            <div class="card stat-card stat-card--muted">
+              <div class="stat-card__value">124</div>
+              <div class="stat-card__label">Toplam Sipariş</div>
+            </div>
+            <div class="card stat-card stat-card--success">
+              <div class="stat-card__value">18</div>
+              <div class="stat-card__label">Yeni Üye</div>
+            </div>
+            <div class="card stat-card stat-card--warning">
+              <div class="stat-card__value">5</div>
+              <div class="stat-card__label">Stok Uyarısı</div>
+            </div>
+          </div>
+
+          <div class="admin-section">
+            <h2 class="admin-section-title">Satış Özeti</h2>
+            <div class="card">
+              <div class="admin-chart-placeholder">
+                Haftalık / aylık satış grafiği burada gösterilecek. (Chart.js veya benzeri entegre edilebilir)
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-section">
+            <h2 class="admin-section-title">Son Siparişler</h2>
+            <div class="card table-card">
+              <table class="user-table">
+                <thead>
+                  <tr>
+                    <th>Sipariş No</th>
+                    <th>Müşteri</th>
+                    <th>Tarih</th>
+                    <th>Tutar</th>
+                    <th>Durum</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>#SIP-1024</strong></td>
+                    <td>Ayşe Yılmaz</td>
+                    <td>28.02.2025</td>
+                    <td>349,00 TL</td>
+                    <td><span class="status-badge status-badge--shipped">Kargoda</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#SIP-1023</strong></td>
+                    <td>Mehmet Demir</td>
+                    <td>28.02.2025</td>
+                    <td>189,50 TL</td>
+                    <td><span class="status-badge status-badge--processing">Hazırlanıyor</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#SIP-1022</strong></td>
+                    <td>Zeynep Kaya</td>
+                    <td>27.02.2025</td>
+                    <td>567,00 TL</td>
+                    <td><span class="status-badge status-badge--delivered">Teslim</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#SIP-1021</strong></td>
+                    <td>Ali Öz</td>
+                    <td>27.02.2025</td>
+                    <td>125,00 TL</td>
+                    <td><span class="status-badge status-badge--pending">Bekliyor</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#SIP-1020</strong></td>
+                    <td>Fatma Çelik</td>
+                    <td>26.02.2025</td>
+                    <td>899,00 TL</td>
+                    <td><span class="status-badge status-badge--delivered">Teslim</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="admin-section">
+            <h2 class="admin-section-title">Düşük Stok Uyarıları</h2>
+            <div class="card table-card">
+              <table class="user-table">
+                <thead>
+                  <tr>
+                    <th>Ürün</th>
+                    <th>Kategori</th>
+                    <th>Mevcut</th>
+                    <th>İşlem</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Basic Tişört — Mavi</td>
+                    <td>Giyim</td>
+                    <td><span class="status-badge status-badge--low">3 adet</span></td>
+                    <td><button type="button" class="btn btn-outline btn-sm">Stok Ekle</button></td>
+                  </tr>
+                  <tr>
+                    <td>Slim Pantolon — Siyah</td>
+                    <td>Giyim</td>
+                    <td><span class="status-badge status-badge--low">2 adet</span></td>
+                    <td><button type="button" class="btn btn-outline btn-sm">Stok Ekle</button></td>
+                  </tr>
+                  <tr>
+                    <td>Örnek Market Ürünü</td>
+                    <td>Market</td>
+                    <td><span class="status-badge status-badge--low">5 adet</span></td>
+                    <td><button type="button" class="btn btn-outline btn-sm">Stok Ekle</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="admin-quick-actions">
+            <a href="urun-ekle.html" class="btn btn-primary">+ Ürün Ekle</a>
+            <a href="siparisler.html" class="btn btn-outline">Siparişler</a>
+            <a href="stok.html" class="btn btn-outline">Stok Yönetimi</a>
+            <a href="kullanicilar.html" class="btn btn-outline">Kullanıcılar</a>
+            <a href="finans.html" class="btn btn-outline">Finans</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="../assets/js/common.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var base = '../';
+      fetch(base + 'components/header.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        if (window.fixHeaderLinks) fixHeaderLinks(base);
+        if (window.updateHeaderBadges) updateHeaderBadges();
+        if (window.updateThemeToggleLabel) updateThemeToggleLabel();
+        document.getElementById('hamburger-btn') && document.getElementById('hamburger-btn').addEventListener('click', toggleMenu);
+      }).catch(function () {});
+      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) { document.getElementById('footer-placeholder').innerHTML = html; }).catch(function () {});
+      fetch(base + 'components/admin-sidebar.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('admin-sidebar-placeholder').innerHTML = html;
+        var active = document.querySelector('.user-nav a[data-admin-page="index"]');
+        if (active) active.classList.add('is-active');
+      }).catch(function () {});
+    });
+  </script>
+</body>
+</html>

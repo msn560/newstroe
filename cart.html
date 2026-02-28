@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sepetim — Mağaza</title>
+  <meta name="description" content="Alışveriş sepetiniz.">
+  <link rel="stylesheet" href="assets/css/root.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: var(--font); color: var(--yazi); margin: 0; }</style>
+</head>
+<body class="page-wrapper">
+  <div id="header-placeholder"></div>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="page-title">Sepetim</h1>
+
+      <div id="cart-content">
+        <div id="cart-empty" class="card cart-empty" style="display: none;">
+          <p>Sepetiniz boş.</p>
+          <a href="index.html" class="btn btn-primary">Alışverişe Başla</a>
+        </div>
+        <div id="cart-filled" style="display: none;">
+          <div class="cart-layout">
+            <div>
+              <div id="cart-items"></div>
+              <a href="index.html" class="cart-continue-link">← Alışverişe Devam Et</a>
+              <div class="coupon-row">
+                <label for="coupon-input" class="input">
+                  <input type="text" id="coupon-input" placeholder="Kupon kodu">
+                  <button type="button" class="btn btn-outline btn-sm" id="coupon-apply">Uygula</button>
+                </label>
+              </div>
+            </div>
+            <div class="card cart-summary">
+              <div class="cart-summary__row"><span>Ürünler toplamı</span><span id="summary-subtotal">0 TL</span></div>
+              <div class="cart-summary__row"><span>İndirim</span><span id="summary-discount">0 TL</span></div>
+              <div class="cart-summary__row"><span>Kargo</span><span id="summary-shipping">Ücretsiz</span></div>
+              <div class="cart-summary__row cart-summary__total"><span>Toplam</span><span id="summary-total">0 TL</span></div>
+              <a href="checkout.html" class="btn btn-primary btn-lg">Siparişi Tamamla</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="assets/js/common.js" defer></script>
+  <script src="assets/js/cart.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var base = '';
+      fetch(base + 'components/header.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        if (window.updateHeaderBadges) updateHeaderBadges();
+        if (window.updateThemeToggleLabel) updateThemeToggleLabel();
+        var h = document.getElementById('hamburger-btn');
+        if (h) h.addEventListener('click', toggleMenu);
+      }).catch(function () {});
+      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      }).catch(function () {});
+
+      function renderCart() {
+        var cart = getCart();
+        var items = cart.items || [];
+        var emptyEl = document.getElementById('cart-empty');
+        var filledEl = document.getElementById('cart-filled');
+        var listEl = document.getElementById('cart-items');
+        if (!listEl) return;
+        if (items.length === 0) {
+          if (emptyEl) emptyEl.style.display = 'block';
+          if (filledEl) filledEl.style.display = 'none';
+          return;
+        }
+        if (emptyEl) emptyEl.style.display = 'none';
+        if (filledEl) filledEl.style.display = 'block';
+        var priceMap = {};
+        items.forEach(function (i) { priceMap[i.id] = i.price; });
+        var subtotal = calcTotal(items, priceMap);
+        listEl.innerHTML = items.map(function (item) {
+          var price = item.price != null ? item.price : 0;
+          var rowTotal = price * (item.qty || 1);
+          var title = item.title || 'Ürün #' + item.id;
+          return '<div class="cart-item" data-id="' + item.id + '">' +
+            '<img class="cart-item__img" src="data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><rect fill="#f0f0f0" width="80" height="80"/></svg>') + '" alt="">' +
+            '<div class="cart-item__meta"><strong>' + title + '</strong></div>' +
+            '<span class="cart-item__price">' + (formatPrice ? formatPrice(price) : price + ' TL') + '</span>' +
+            '<div class="cart-item__qty">' +
+              '<button type="button" aria-label="Azalt" data-qty="-">−</button>' +
+              '<span>' + (item.qty || 1) + '</span>' +
+              '<button type="button" aria-label="Artır" data-qty="+">+</button>' +
+            '</div>' +
+            '<span class="cart-item__total">' + (formatPrice ? formatPrice(rowTotal) : rowTotal + ' TL') + '</span>' +
+            '<button type="button" class="cart-item__remove" aria-label="Kaldır">×</button>' +
+          '</div>';
+        }).join('');
+        listEl.querySelectorAll('.cart-item__qty button').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var row = btn.closest('.cart-item');
+            var id = row.getAttribute('data-id');
+            var qtyEl = row.querySelector('.cart-item__qty span');
+            var qty = parseInt(qtyEl.textContent, 10) || 1;
+            if (btn.getAttribute('data-qty') === '+') qty++; else qty--;
+            if (qty < 1) { removeFromCart(id); renderCart(); return; }
+            updateQty(id, qty);
+            renderCart();
+          });
+        });
+        listEl.querySelectorAll('.cart-item__remove').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var id = btn.closest('.cart-item').getAttribute('data-id');
+            removeFromCart(id);
+            renderCart();
+          });
+        });
+        document.getElementById('summary-subtotal').textContent = (formatPrice ? formatPrice(subtotal) : subtotal + ' TL');
+        document.getElementById('summary-total').textContent = (formatPrice ? formatPrice(subtotal) : subtotal + ' TL');
+      }
+
+      document.getElementById('coupon-apply').addEventListener('click', function () {
+        var code = document.getElementById('coupon-input').value.trim();
+        if (code) applyCoupon(code);
+        renderCart();
+      });
+      renderCart();
+    });
+  </script>
+</body>
+</html>

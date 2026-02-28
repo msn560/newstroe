@@ -1,0 +1,305 @@
+/**
+ * Admin paneli — modern tasarım, sidebar, tablolar, istatistik kartları.
+ * Sadece /admin/ sayfalarında yüklenir. root + layout + components sonrası.
+ */
+
+/* ─── Admin layout override ─── */
+body.admin-page .page-wrapper {
+  background: var(--arka);
+}
+body.admin-page .section {
+  padding-top: var(--padding-lg);
+  padding-bottom: var(--padding-2xl);
+}
+
+/* ─── Sidebar (admin) ─── */
+.admin-page .user-sidebar {
+  background: var(--beyaz);
+  border-radius: var(--radius-lg);
+  padding: var(--padding-lg);
+  border: var(--border-width) solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.admin-page .user-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--margin-sm);
+  padding-bottom: var(--padding-lg);
+  margin-bottom: var(--margin);
+  border-bottom: var(--border-width) solid var(--border);
+}
+.admin-page .user-sidebar__brand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  background: var(--ana-soft);
+  color: var(--ana-renk);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+.admin-page .user-sidebar__brand-text {
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+  color: var(--yazi);
+}
+.admin-page .user-sidebar__name {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--yazi-acik);
+  text-align: left;
+  margin-bottom: var(--margin);
+}
+.admin-page .user-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.admin-page .user-nav li { margin-bottom: var(--margin-xs); }
+.admin-page .user-nav a {
+  display: flex;
+  align-items: center;
+  gap: var(--margin-sm);
+  padding: var(--padding) var(--padding-md);
+  border-radius: var(--radius);
+  color: var(--yazi);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.admin-page .user-nav a:hover {
+  background: var(--gri-acik);
+  color: var(--ana-renk);
+}
+.admin-page .user-nav a.is-active {
+  background: var(--ana-soft);
+  color: var(--ana-renk);
+  font-weight: 600;
+}
+/* ─── Ana alan ─── */
+.admin-page .user-main {
+  min-width: 0;
+}
+
+/* ─── Sayfa başlığı ─── */
+.admin-page main .page-title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--margin-lg);
+  padding-bottom: var(--padding-md);
+  border-bottom: var(--border-width) solid var(--border);
+}
+
+/* ─── İstatistik kartları ─── */
+.admin-page .stat-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--margin-lg);
+  margin-bottom: var(--margin-xl);
+}
+.admin-page .stat-card {
+  background: var(--beyaz);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--padding-lg);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+.admin-page .stat-card:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border-strong);
+}
+.admin-page .stat-card__value {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--ana-renk);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--margin-xs);
+}
+.admin-page .stat-card__label {
+  font-size: var(--font-size-sm);
+  color: var(--yazi-muted);
+  font-weight: 500;
+}
+.admin-page .stat-card.stat-card--success .stat-card__value { color: var(--basari); }
+.admin-page .stat-card.stat-card--warning .stat-card__value { color: var(--uyari); }
+.admin-page .stat-card.stat-card--muted .stat-card__value { color: var(--yazi-acik); }
+
+/* ─── Toolbar ─── */
+.admin-page .admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--margin);
+  margin-bottom: var(--margin-lg);
+}
+.admin-page .admin-toolbar .input {
+  max-width: 260px;
+}
+.admin-page .admin-toolbar .btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--margin-sm);
+}
+
+/* ─── Tablolar ─── */
+.admin-page .card.table-card {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  padding: 0;
+}
+.admin-page .user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.admin-page .user-table th,
+.admin-page .user-table td {
+  padding: var(--padding-md) var(--padding-lg);
+  border-bottom: var(--border-width) solid var(--border);
+  text-align: left;
+  font-size: var(--font-size-sm);
+}
+.admin-page .user-table thead {
+  background: var(--gri-acik);
+}
+.admin-page .user-table th {
+  font-weight: 600;
+  color: var(--yazi-acik);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--font-size-xs);
+}
+.admin-page .user-table tbody tr {
+  transition: background var(--transition-fast);
+}
+.admin-page .user-table tbody tr:hover {
+  background: var(--surface-hover);
+}
+.admin-page .user-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.admin-page .user-table .admin-table__img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: var(--gri-acik);
+}
+.admin-page .user-table .admin-table__actions {
+  display: flex;
+  gap: var(--margin-xs);
+}
+.admin-page .user-table .admin-table__actions .btn {
+  min-height: 32px;
+  padding: var(--padding-xs) var(--padding-sm);
+  font-size: var(--font-size-xs);
+}
+
+/* Durum badge (tablo içi) ─── */
+.admin-page .status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--padding-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+}
+.admin-page .status-badge--pending { background: var(--uyari-soft); color: var(--uyari); }
+.admin-page .status-badge--processing { background: var(--ana-soft); color: var(--ana-renk); }
+.admin-page .status-badge--shipped { background: var(--basari-soft); color: var(--basari); }
+.admin-page .status-badge--delivered { background: var(--basari-soft); color: var(--basari); }
+.admin-page .status-badge--cancelled { background: var(--hata-soft); color: var(--hata); }
+.admin-page .status-badge--active { background: var(--basari-soft); color: var(--basari); }
+.admin-page .status-badge--draft { background: var(--gri-acik); color: var(--yazi-muted); }
+.admin-page .status-badge--low { background: var(--uyari-soft); color: var(--uyari); }
+
+/* ─── Boş durum / placeholder ─── */
+.admin-page .admin-empty {
+  text-align: center;
+  padding: var(--padding-2xl);
+  color: var(--yazi-muted);
+  font-size: var(--font-size-sm);
+}
+.admin-page .admin-empty p {
+  margin: 0 0 var(--margin);
+}
+.admin-page .checkout-ozet {
+  color: var(--yazi-muted);
+  font-size: var(--font-size-sm);
+  padding: var(--padding-lg);
+}
+
+/* ─── Bölüm başlığı ─── */
+.admin-page .admin-section-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--yazi);
+  margin: 0 0 var(--margin);
+}
+.admin-page .admin-section {
+  margin-bottom: var(--margin-xl);
+}
+
+/* ─── Grafik placeholder ─── */
+.admin-page .admin-chart-placeholder {
+  background: var(--gri-acik);
+  border-radius: var(--radius);
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--yazi-muted);
+  font-size: var(--font-size-sm);
+  padding: var(--padding-xl);
+}
+
+/* ─── Hızlı işlemler ─── */
+.admin-page .admin-quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--margin);
+  margin-top: var(--margin-xl);
+}
+.admin-page .admin-quick-actions .btn {
+  min-width: 140px;
+}
+
+/* ─── Form grupları (ürün ekle vb.) ─── */
+.admin-page .admin-form .card {
+  padding: var(--padding-xl);
+}
+.admin-page .admin-form .input,
+.admin-page .admin-form .input-label {
+  margin-bottom: var(--margin);
+}
+.admin-page .admin-form .checkout-actions {
+  margin-top: var(--margin-lg);
+  padding-top: var(--margin);
+  border-top: var(--border-width) solid var(--border);
+}
+
+/* ─── Responsive admin ─── */
+@media (max-width: 992px) {
+  .admin-page .stat-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .admin-page .stat-cards {
+    grid-template-columns: 1fr;
+    gap: var(--margin);
+  }
+  .admin-page .user-table th,
+  .admin-page .user-table td {
+    padding: var(--padding-sm) var(--padding);
+    font-size: var(--font-size-xs);
+  }
+  .admin-page .admin-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .admin-page .admin-toolbar .input {
+    max-width: none;
+  }
+}

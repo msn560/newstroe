@@ -1,0 +1,24 @@
+<!-- Ürün kartı bileşeni — data attribute ile doldurulabilir, fetch ile yüklenip clone edilir -->
+<article class="product-card card" data-product-id="">
+  <a href="#" class="product-card__img-wrap">
+    <img class="product-card__img lazy" src="assets/img/placeholder.webp" data-src="" alt="" loading="lazy" width="300" height="300">
+    <span class="badge badge-danger product-card__badge" data-badge="">%20</span>
+    <button type="button" class="product-card__fav" aria-label="Favorilere ekle">♡</button>
+  </a>
+  <div class="product-card__body">
+    <p class="product-card__brand" data-brand="">Marka</p>
+    <h3 class="product-card__title">
+      <a href="#" class="product-card__title-link" data-title="">Ürün adı buraya (en fazla 2 satır)</a>
+    </h3>
+    <div class="rating" data-rating="">
+      <span class="rating__stars">★★★★☆</span>
+      <span class="rating__count" data-review-count="">(0)</span>
+    </div>
+    <p class="product-card__cargo">Ücretsiz kargo</p>
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-old" data-price-old="">299,00 TL</span>
+      <span class="product-card__price" data-price="">239,00 TL</span>
+    </div>
+    <button type="button" class="btn btn-primary product-card__add" data-add-cart>Sepete Ekle</button>
+  </div>
+</article>

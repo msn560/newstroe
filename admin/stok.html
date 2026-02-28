@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stok — Admin</title>
+  <link rel="stylesheet" href="../assets/css/root.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-wrapper admin-page">
+  <div id="header-placeholder"></div>
+  <main class="section">
+    <div class="container">
+      <div class="user-layout">
+        <div id="admin-sidebar-placeholder"></div>
+        <div class="user-main">
+          <h1 class="page-title">Stok Yönetimi</h1>
+          <p style="margin: 0 0 var(--margin-lg); color: var(--yazi-muted); font-size: var(--font-size-sm);">Ürün stoklarını görüntüleyin ve güncelleyin.</p>
+          <div class="admin-toolbar">
+            <select class="input" style="width: auto; min-width: 180px;">
+              <option value="">Tüm ürünler</option>
+              <option value="5">Stok 5 altı</option>
+              <option value="10">Stok 10 altı</option>
+            </select>
+            <select class="input" style="width: auto; min-width: 140px;">
+              <option value="">Tüm kategoriler</option>
+              <option>Giyim</option>
+              <option>Market</option>
+            </select>
+          </div>
+          <div class="card table-card">
+            <table class="user-table">
+              <thead>
+                <tr>
+                  <th>Ürün</th>
+                  <th>Kategori</th>
+                  <th>Mevcut Stok</th>
+                  <th>Son Güncelleme</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Basic Tişört — Mavi</td>
+                  <td>Giyim</td>
+                  <td><span class="status-badge status-badge--low">3</span></td>
+                  <td>27.02.2025</td>
+                  <td>
+                    <div class="admin-table__actions">
+                      <input type="number" class="input" value="5" min="0" style="width: 70px; display: inline-block; margin-right: var(--margin-xs);">
+                      <button type="button" class="btn btn-primary btn-sm">Ekle</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Slim Pantolon — Siyah</td>
+                  <td>Giyim</td>
+                  <td><span class="status-badge status-badge--low">2</span></td>
+                  <td>26.02.2025</td>
+                  <td>
+                    <div class="admin-table__actions">
+                      <input type="number" class="input" value="10" min="0" style="width: 70px; display: inline-block; margin-right: var(--margin-xs);">
+                      <button type="button" class="btn btn-primary btn-sm">Ekle</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Sweatshirt Kapüşonlu</td>
+                  <td>Giyim</td>
+                  <td><span class="status-badge status-badge--low">3</span></td>
+                  <td>25.02.2025</td>
+                  <td>
+                    <div class="admin-table__actions">
+                      <input type="number" class="input" value="15" min="0" style="width: 70px; display: inline-block; margin-right: var(--margin-xs);">
+                      <button type="button" class="btn btn-primary btn-sm">Ekle</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jean Ceket</td>
+                  <td>Giyim</td>
+                  <td><span class="status-badge status-badge--active">0</span></td>
+                  <td>—</td>
+                  <td>
+                    <div class="admin-table__actions">
+                      <input type="number" class="input" value="20" min="0" style="width: 70px; display: inline-block; margin-right: var(--margin-xs);">
+                      <button type="button" class="btn btn-primary btn-sm">Ekle</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Örnek Market Ürünü</td>
+                  <td>Market</td>
+                  <td><span class="status-badge status-badge--low">5</span></td>
+                  <td>24.02.2025</td>
+                  <td>
+                    <div class="admin-table__actions">
+                      <input type="number" class="input" value="50" min="0" style="width: 70px; display: inline-block; margin-right: var(--margin-xs);">
+                      <button type="button" class="btn btn-primary btn-sm">Ekle</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="../assets/js/common.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var base = '../';
+      fetch(base + 'components/header.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        if (window.fixHeaderLinks) fixHeaderLinks(base);
+        if (window.updateHeaderBadges) updateHeaderBadges();
+        if (window.updateThemeToggleLabel) updateThemeToggleLabel();
+        document.getElementById('hamburger-btn') && document.getElementById('hamburger-btn').addEventListener('click', toggleMenu);
+      }).catch(function () {});
+      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) { document.getElementById('footer-placeholder').innerHTML = html; }).catch(function () {});
+      fetch(base + 'components/admin-sidebar.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('admin-sidebar-placeholder').innerHTML = html;
+        document.querySelector('.user-nav a[data-admin-page="stok"]') && document.querySelector('.user-nav a[data-admin-page="stok"]').classList.add('is-active');
+      }).catch(function () {});
+    });
+  </script>
+</body>
+</html>

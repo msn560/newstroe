@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ürünler — Admin</title>
+  <link rel="stylesheet" href="../assets/css/root.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-wrapper admin-page">
+  <div id="header-placeholder"></div>
+  <main class="section">
+    <div class="container">
+      <div class="user-layout">
+        <div id="admin-sidebar-placeholder"></div>
+        <div class="user-main">
+          <div class="admin-toolbar" style="flex-wrap: wrap; justify-content: space-between; margin-bottom: var(--margin-lg);">
+            <h1 class="page-title" style="margin: 0;">Ürünler</h1>
+            <a href="urun-ekle.html" class="btn btn-primary">Yeni Ürün Ekle</a>
+          </div>
+          <div class="admin-toolbar">
+            <input type="search" class="input" placeholder="Ürün veya ID ara..." style="max-width: 260px;">
+            <select class="input" style="width: auto; min-width: 160px;">
+              <option value="">Tüm Kategoriler</option>
+              <option value="giyim">Giyim</option>
+              <option value="market">Market</option>
+              <option value="esya">Eşya</option>
+              <option value="ikinci_el">İkinci El</option>
+              <option value="hesap">Hesap</option>
+              <option value="kupon">Kupon</option>
+              <option value="altin">Altın</option>
+              <option value="maden">Maden</option>
+            </select>
+          </div>
+          <div class="card table-card">
+            <table class="user-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" aria-label="Tümünü seç"></th>
+                  <th>ID</th>
+                  <th>Resim</th>
+                  <th>Ad</th>
+                  <th>Kategori</th>
+                  <th>Fiyat</th>
+                  <th>Stok</th>
+                  <th>Durum</th>
+                  <th>İşlemler</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" aria-label="Satırı seç"></td>
+                  <td>1</td>
+                  <td><span class="admin-table__img" style="display:inline-block;width:40px;height:40px;background:var(--gri-acik);border-radius:var(--radius-sm);"></span></td>
+                  <td>Basic Tişört</td>
+                  <td>Giyim</td>
+                  <td>149,99 TL</td>
+                  <td>42</td>
+                  <td><span class="status-badge status-badge--active">Aktif</span></td>
+                  <td>
+                    <div class="admin-table__actions">
+                      <a href="urun-ekle.html?id=1" class="btn btn-outline btn-sm">Düzenle</a>
+                      <button type="button" class="btn btn-outline btn-sm">Sil</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" aria-label="Satırı seç"></td>
+                  <td>2</td>
+                  <td><span class="admin-table__img" style="display:inline-block;width:40px;height:40px;background:var(--gri-acik);border-radius:var(--radius-sm);"></span></td>
+                  <td>Slim Fit Pantolon</td>
+                  <td>Giyim</td>
+                  <td>299,00 TL</td>
+                  <td>18</td>
+                  <td><span class="status-badge status-badge--active">Aktif</span></td>
+                  <td>
+                    <div class="admin-table__actions">
+                      <a href="urun-ekle.html?id=2" class="btn btn-outline btn-sm">Düzenle</a>
+                      <button type="button" class="btn btn-outline btn-sm">Sil</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" aria-label="Satırı seç"></td>
+                  <td>3</td>
+                  <td><span class="admin-table__img" style="display:inline-block;width:40px;height:40px;background:var(--gri-acik);border-radius:var(--radius-sm);"></span></td>
+                  <td>Sweatshirt Kapüşonlu</td>
+                  <td>Giyim</td>
+                  <td>399,00 TL</td>
+                  <td>3</td>
+                  <td><span class="status-badge status-badge--low">Düşük stok</span></td>
+                  <td>
+                    <div class="admin-table__actions">
+                      <a href="urun-ekle.html?id=3" class="btn btn-outline btn-sm">Düzenle</a>
+                      <button type="button" class="btn btn-outline btn-sm">Sil</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" aria-label="Satırı seç"></td>
+                  <td>4</td>
+                  <td><span class="admin-table__img" style="display:inline-block;width:40px;height:40px;background:var(--gri-acik);border-radius:var(--radius-sm);"></span></td>
+                  <td>Jean Ceket</td>
+                  <td>Giyim</td>
+                  <td>599,00 TL</td>
+                  <td>0</td>
+                  <td><span class="status-badge status-badge--draft">Taslak</span></td>
+                  <td>
+                    <div class="admin-table__actions">
+                      <a href="urun-ekle.html?id=4" class="btn btn-outline btn-sm">Düzenle</a>
+                      <button type="button" class="btn btn-outline btn-sm">Sil</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="../assets/js/common.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var base = '../';
+      fetch(base + 'components/header.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        if (window.fixHeaderLinks) fixHeaderLinks(base);
+        if (window.updateHeaderBadges) updateHeaderBadges();
+        if (window.updateThemeToggleLabel) updateThemeToggleLabel();
+        document.getElementById('hamburger-btn') && document.getElementById('hamburger-btn').addEventListener('click', toggleMenu);
+      }).catch(function () {});
+      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) { document.getElementById('footer-placeholder').innerHTML = html; }).catch(function () {});
+      fetch(base + 'components/admin-sidebar.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('admin-sidebar-placeholder').innerHTML = html;
+        document.querySelector('.user-nav a[data-admin-page="urunler"]') && document.querySelector('.user-nav a[data-admin-page="urunler"]').classList.add('is-active');
+      }).catch(function () {});
+    });
+  </script>
+</body>
+</html>
