@@ -1,2 +1,11 @@
-/* Giyim kategori sayfası — sadece sayfaya özel kurallar */
-/* Filtre drawer + color-swatch: layout.css */
+/* Giyim kategori — sayfaya özel (ortak: layout.css, pages.css) */
+
+/* Opsiyonel: kategori vurgu rengi */
+.category-page .category-promo {
+  background: linear-gradient(135deg, rgba(194, 65, 12, 0.08) 0%, var(--gri-acik) 100%);
+}
+.category-page .category-subnav a:hover,
+.category-page .category-subnav a:focus {
+  color: var(--ana-renk);
+  background: var(--ana-soft);
+}

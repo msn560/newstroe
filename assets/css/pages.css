@@ -1,0 +1,220 @@
+/**
+ * Kategori sayfaları — modern liste, filtre, vitrin.
+ * pages/*/index.html sayfalarında layout + components sonrası yüklenir.
+ */
+
+/* ─── Sayfa wrapper ─── */
+.category-page .section {
+  padding-top: var(--padding-lg);
+  padding-bottom: var(--padding-2xl);
+}
+
+/* ─── Kategori başlık alanı ─── */
+.category-header {
+  margin-bottom: var(--margin-xl);
+}
+.category-header__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--margin);
+  margin-bottom: var(--margin);
+}
+.category-header h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  color: var(--yazi);
+  margin: 0;
+}
+.category-header__desc {
+  font-size: var(--font-size-base);
+  color: var(--yazi-muted);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+  max-width: 56ch;
+}
+
+/* Breadcrumb — kategori sayfasında ─── */
+.category-page .breadcrumb {
+  padding: var(--padding-sm) 0 var(--padding-lg);
+  margin-bottom: 0;
+  border-bottom: var(--border-width) solid var(--border);
+  margin-bottom: var(--margin-lg);
+}
+
+/* Alt kategoriler / etiketler ─── */
+.category-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--margin-sm);
+  margin-top: var(--margin);
+}
+.category-subnav a {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--padding-sm) var(--padding-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--yazi-acik);
+  background: var(--gri-acik);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+.category-subnav a:hover {
+  color: var(--ana-renk);
+  background: var(--ana-soft);
+}
+
+/* ─── Filtre paneli (kategori sayfası) ─── */
+.category-page .filter-panel {
+  border-radius: var(--radius-lg);
+  padding: var(--padding-lg);
+  box-shadow: var(--shadow-xs);
+}
+.category-page .filter-panel h3 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--yazi-acik);
+  margin: 0 0 var(--margin);
+  padding-bottom: var(--padding-sm);
+  border-bottom: var(--border-width) solid var(--border);
+}
+.category-page .filter-panel h3:not(:first-child) {
+  margin-top: var(--margin-lg);
+}
+.category-page .filter-panel .input + .input {
+  margin-top: var(--margin-sm);
+}
+.category-page .filter-panel label {
+  display: flex;
+  align-items: center;
+  gap: var(--padding);
+  margin-bottom: var(--margin-sm);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  padding: var(--padding-xs) 0;
+}
+.category-page .filter-panel label:hover {
+  color: var(--ana-renk);
+}
+.category-page .filter-reset {
+  margin-top: var(--margin-lg);
+  width: 100%;
+}
+
+/* Fiyat aralığı — yan yana ─── */
+.category-page .filter-panel .filter-price-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--margin-sm);
+}
+
+/* ─── Catalog toolbar ─── */
+.category-page .catalog-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--margin);
+  padding: var(--padding-md) 0;
+  margin-bottom: var(--margin-lg);
+  border-bottom: var(--border-width) solid var(--border);
+}
+.category-page .product-count {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--yazi-acik);
+}
+.category-page .catalog-toolbar .input {
+  min-width: 180px;
+  border-radius: var(--radius-sm);
+}
+
+/* Filtre aç butonu (mobil) ─── */
+.category-page .filter-drawer-toggle {
+  margin-bottom: var(--margin);
+}
+.category-page .filter-drawer-toggle::before {
+  content: '▾ ';
+  margin-right: var(--margin-xs);
+}
+
+/* ─── Ürün grid (katalog alanı) ─── */
+.category-page .catalog-content {
+  min-height: 200px;
+}
+.category-page .grid-4 {
+  gap: var(--margin-lg);
+}
+
+/* Boş liste durumu ─── */
+.catalog-empty {
+  text-align: center;
+  padding: var(--padding-2xl);
+  background: var(--beyaz);
+  border: var(--border-width) dashed var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--yazi-muted);
+  font-size: var(--font-size-base);
+}
+.catalog-empty p {
+  margin: 0 0 var(--margin);
+}
+.catalog-empty .btn {
+  margin-top: var(--margin);
+}
+
+/* Scroll sentinel ─── */
+.category-page .scroll-sentinel {
+  margin-top: var(--margin-lg);
+}
+
+/* ─── Pagination ─── */
+.category-page .pagination {
+  margin-top: var(--margin-xl);
+}
+
+/* ─── Kampanya bandı (kategori içi) ─── */
+.category-promo {
+  background: linear-gradient(135deg, var(--ana-soft) 0%, var(--gri-acik) 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--padding-lg);
+  margin-bottom: var(--margin-xl);
+  border: var(--border-width) solid var(--border);
+}
+.category-promo p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--yazi-acik);
+}
+.category-promo strong {
+  color: var(--ana-renk);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 992px) {
+  .category-page .category-header h1 {
+    font-size: var(--font-size-xl);
+  }
+  .category-page .main-grid {
+    gap: var(--margin);
+  }
+}
+@media (max-width: 576px) {
+  .category-page .catalog-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .category-page .catalog-toolbar .input {
+    width: 100%;
+    min-width: 0;
+  }
+  .category-page .grid-4 {
+    gap: var(--margin);
+  }
+}

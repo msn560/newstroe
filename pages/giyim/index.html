@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="../../assets/css/layout.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
   <link rel="stylesheet" href="../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../assets/css/pages.css">
   <link rel="stylesheet" href="giyim.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>body { font-family: var(--font); color: var(--yazi); margin: 0; }</style>
 </head>
-<body class="page-wrapper">
+<body class="page-wrapper category-page">
   <div id="header-placeholder"></div>
 
   <main class="section">
@@ -24,14 +24,32 @@
         <span>Giyim</span>
       </nav>
 
+      <header class="category-header">
+        <div class="category-header__top">
+          <h1>Giyim</h1>
+        </div>
+        <p class="category-header__desc">Erkek, kadın ve çocuk giyim ürünleri. Tişört, pantolon, ceket, sweatshirt ve daha fazlası. Ücretsiz kargo fırsatlarıyla güvenli alışveriş.</p>
+        <nav class="category-subnav" aria-label="Alt kategoriler">
+          <a href="#erkek">Erkek</a>
+          <a href="#kadin">Kadın</a>
+          <a href="#cocuk">Çocuk</a>
+          <a href="#ayakkabi">Ayakkabı</a>
+          <a href="#aksesuar">Aksesuar</a>
+        </nav>
+      </header>
+
+      <div class="category-promo">
+        <p><strong>Kampanya:</strong> 150 TL ve üzeri siparişlerde kargo bedava. Seçili ürünlerde %30’a varan indirim.</p>
+      </div>
+
       <button type="button" class="btn btn-outline btn-sm filter-drawer-toggle" id="filter-toggle" aria-label="Filtreleri aç">Filtreler</button>
 
       <div class="filter-drawer-backdrop" id="filter-backdrop" aria-hidden="true"></div>
       <div class="main-grid">
         <aside class="sidebar filter-panel" id="filter-panel">
           <form id="filter-form">
-            <h3>Fiyat</h3>
-            <div>
+            <h3>Fiyat (TL)</h3>
+            <div class="filter-price-row">
               <input type="number" class="input" name="min_fiyat" placeholder="Min" min="0" step="10" aria-label="Min fiyat">
               <input type="number" class="input" name="max_fiyat" placeholder="Max" min="0" step="10" aria-label="Max fiyat">
             </div>
@@ -46,13 +64,14 @@
             <label><input type="checkbox" name="beden" value="XL"> XL</label>
             <h3>Renk</h3>
             <label><input type="checkbox" name="renk" value="siyah"> <span class="color-swatch" style="background:#222"></span> Siyah</label>
-            <label><input type="checkbox" name="renk" value="beyaz"> <span class="color-swatch" style="background:#fff"></span> Beyaz</label>
+            <label><input type="checkbox" name="renk" value="beyaz"> <span class="color-swatch" style="background:#fff;border:1px solid var(--border);"></span> Beyaz</label>
             <label><input type="checkbox" name="renk" value="mavi"> <span class="color-swatch" style="background:#1a56db"></span> Mavi</label>
-            <button type="button" class="btn btn-outline btn-sm filter-reset" style="margin-top: var(--margin);">Filtreleri Temizle</button>
+            <label><input type="checkbox" name="renk" value="gri"> <span class="color-swatch" style="background:#6b7280"></span> Gri</label>
+            <button type="button" class="btn btn-outline btn-sm filter-reset">Filtreleri Temizle</button>
           </form>
         </aside>
 
-        <div>
+        <div class="catalog-content">
           <div class="catalog-toolbar">
             <span id="product-count" class="product-count">0 ürün bulundu</span>
             <select class="input" id="sort-select" aria-label="Sıralama">

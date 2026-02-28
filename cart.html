@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/shop-pages.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>body { font-family: var(--font); color: var(--yazi); margin: 0; }</style>
 </head>
-<body class="page-wrapper">
+<body class="page-wrapper cart-page">
   <div id="header-placeholder"></div>
 
   <main class="section">
@@ -21,7 +21,8 @@
 
       <div id="cart-content">
         <div id="cart-empty" class="card cart-empty" style="display: none;">
-          <p>Sepetiniz boş.</p>
+          <div class="cart-empty__icon" aria-hidden="true">🛒</div>
+          <p>Sepetiniz boş. Alışverişe başlamak için ürün ekleyin.</p>
           <a href="index.html" class="btn btn-primary">Alışverişe Başla</a>
         </div>
         <div id="cart-filled" style="display: none;">
@@ -30,10 +31,10 @@
               <div id="cart-items"></div>
               <a href="index.html" class="cart-continue-link">← Alışverişe Devam Et</a>
               <div class="coupon-row">
-                <label for="coupon-input" class="input">
-                  <input type="text" id="coupon-input" placeholder="Kupon kodu">
+                <div class="coupon-input-wrap">
+                  <input type="text" id="coupon-input" placeholder="Kupon kodu" aria-label="Kupon kodu">
                   <button type="button" class="btn btn-outline btn-sm" id="coupon-apply">Uygula</button>
-                </label>
+                </div>
               </div>
             </div>
             <div class="card cart-summary">

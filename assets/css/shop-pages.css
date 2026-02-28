@@ -1,0 +1,554 @@
+/**
+ * Shop pages — Ana sayfa, Sepet, Ödeme
+ * Modern CSS, zengin görsel hiyerarşi
+ */
+
+/* ========== Ana sayfa (index.html) ========== */
+.home-page .hero.section {
+  padding-top: var(--padding-lg);
+  padding-bottom: var(--padding-lg);
+}
+
+.home-page .hero-slider {
+  min-height: 380px;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.home-page .hero-slider__slide {
+  max-height: 420px;
+}
+
+.home-page .hero-slider__slide--1 {
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 35%, #fdba74 100%);
+}
+
+.home-page .hero-slider__slide--2 {
+  background: linear-gradient(135deg, #1c1917 0%, #44403c 50%, #57534e 100%);
+}
+
+.home-page .hero-slider__slide--3 {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+}
+
+.home-page .hero-slider__content {
+  padding: var(--padding-2xl);
+  max-width: 560px;
+}
+
+.home-page .hero-slider__eyebrow {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.12em;
+  padding: var(--padding-xs) var(--padding);
+  background: rgba(255,255,255,0.2);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--margin);
+}
+
+.home-page .hero-slider__slide--1 .hero-slider__eyebrow {
+  background: var(--ana-soft-2);
+  color: var(--ana-renk);
+}
+
+.home-page .hero-slider__title {
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  letter-spacing: -0.03em;
+  margin-bottom: var(--margin);
+}
+
+.home-page .hero-slider__subtitle {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--margin-xl);
+  opacity: 0.95;
+}
+
+.home-page .hero-slider__content .btn {
+  padding: var(--padding-md) var(--padding-xl);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.home-page .hero-slider__content .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.home-page .hero-slider__arrows button {
+  width: 52px;
+  height: 52px;
+  font-size: 1.5rem;
+  background: var(--beyaz);
+  box-shadow: var(--shadow-md);
+}
+
+.home-page .hero-slider__arrows button:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.home-page .hero-slider__dots button.is-active {
+  width: 32px;
+}
+
+/* Kategori şeridi */
+.home-page .category-scroll {
+  padding: var(--padding-lg) 0;
+  gap: var(--margin);
+}
+
+.home-page .category-item {
+  min-width: 120px;
+  padding: var(--padding-lg) var(--padding-md);
+  border-radius: var(--radius-xl);
+  background: var(--beyaz);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+}
+
+.home-page .category-item:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--ana-renk);
+  transform: translateY(-4px);
+}
+
+.home-page .category-item .category-item__icon {
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  font-size: 2rem;
+  border-radius: var(--radius-lg);
+}
+
+/* Banner grid */
+.home-page .banner-grid {
+  gap: var(--margin-lg);
+}
+
+.home-page .banner-card {
+  min-height: 180px;
+  padding: var(--padding-xl);
+  border-radius: var(--radius-xl);
+  border: 1px solid transparent;
+  overflow: hidden;
+  position: relative;
+}
+
+.home-page .banner-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.home-page .banner-card--1 {
+  background: linear-gradient(145deg, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%);
+}
+
+.home-page .banner-card--2 {
+  background: linear-gradient(145deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%);
+}
+
+.home-page .banner-card--3 {
+  background: linear-gradient(145deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%);
+}
+
+.home-page .banner-card__icon {
+  font-size: 3rem;
+  margin-bottom: var(--margin);
+}
+
+.home-page .banner-card__label {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Bölüm başlıkları */
+.home-page .section-head {
+  margin-bottom: var(--margin-xl);
+  padding-bottom: var(--padding-md);
+  border-bottom: 2px solid var(--border);
+}
+
+.home-page .section-head h2 {
+  font-size: var(--font-size-2xl);
+  letter-spacing: -0.02em;
+}
+
+.home-page .section-head a {
+  font-size: var(--font-size-base);
+}
+
+.home-page .grid-4 {
+  gap: var(--margin-xl);
+}
+
+/* ========== Sepet sayfası (cart.html) ========== */
+.cart-page main.section {
+  padding-top: var(--padding-2xl);
+  padding-bottom: var(--padding-2xl);
+}
+
+.cart-page .page-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--margin-xl);
+  padding-bottom: var(--margin-lg);
+  border-bottom: none;
+  position: relative;
+}
+
+.cart-page .page-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ana-renk), var(--ana-hover));
+  border-radius: var(--radius-full);
+}
+
+.cart-page #cart-content {
+  min-height: 280px;
+}
+
+.cart-page .cart-empty {
+  padding: var(--padding-2xl) var(--padding-xl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  border: 2px dashed var(--border);
+  background: var(--surface);
+}
+
+.cart-page .cart-empty .cart-empty__icon {
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: var(--margin-lg);
+  opacity: 0.5;
+}
+
+.cart-page .cart-empty p {
+  font-size: var(--font-size-lg);
+  color: var(--yazi-acik);
+  margin-bottom: var(--margin-xl);
+}
+
+.cart-page .cart-empty .btn {
+  padding: var(--padding-md) var(--padding-xl);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-lg);
+}
+
+.cart-page .cart-layout {
+  gap: var(--margin-2xl);
+  align-items: start;
+}
+
+.cart-page .cart-continue-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--margin-sm);
+  padding: var(--padding-sm) 0;
+  margin-bottom: var(--margin-lg);
+  font-size: var(--font-size-base);
+}
+
+.cart-page .cart-item {
+  padding: var(--padding-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin-bottom: var(--margin);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.cart-page .cart-item:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border-strong);
+  background: var(--surface);
+}
+
+.cart-page .cart-item__img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-xs);
+}
+
+.cart-page .cart-item__meta strong {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+.cart-page .cart-item__qty button {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.cart-page .cart-item__remove {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.cart-page .coupon-row {
+  margin-top: var(--margin-xl);
+  margin-bottom: var(--margin);
+}
+
+.cart-page .coupon-input-wrap {
+  display: flex;
+  gap: var(--margin-sm);
+  max-width: 360px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.cart-page .coupon-input-wrap:focus-within {
+  border-color: var(--ana-renk);
+  box-shadow: var(--shadow-focus);
+}
+
+.cart-page .coupon-input-wrap input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  padding: var(--padding) var(--padding-md);
+  font-size: var(--font-size-base);
+}
+
+.cart-page .coupon-input-wrap input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.cart-page .coupon-input-wrap .btn {
+  border-radius: 0;
+  flex-shrink: 0;
+}
+
+.cart-page .cart-summary {
+  padding: var(--padding-xl);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: calc(var(--header-height) + var(--margin-lg));
+}
+
+.cart-page .cart-summary__row {
+  padding: var(--padding-sm) 0;
+  font-size: var(--font-size-base);
+}
+
+.cart-page .cart-summary__total {
+  font-size: var(--font-size-xl);
+  padding-top: var(--margin-lg);
+  margin-top: var(--margin);
+  border-top: 2px solid var(--border);
+}
+
+.cart-page .cart-summary .btn {
+  margin-top: var(--margin-lg);
+  padding: var(--padding-md) var(--padding-xl);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 992px) {
+  .cart-page .cart-layout {
+    grid-template-columns: 1fr;
+  }
+  .cart-page .cart-summary {
+    position: static;
+  }
+}
+
+/* ========== Ödeme sayfası (checkout.html) ========== */
+.checkout-page main.section {
+  padding-top: var(--padding-2xl);
+  padding-bottom: var(--padding-2xl);
+}
+
+.checkout-page .page-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--margin-xl);
+  padding-bottom: var(--margin-lg);
+  border-bottom: none;
+  position: relative;
+}
+
+.checkout-page .page-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ana-renk), var(--ana-hover));
+  border-radius: var(--radius-full);
+}
+
+.checkout-page #checkout-flow {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.checkout-page .checkout-steps {
+  margin-bottom: var(--margin-2xl);
+  padding: var(--padding-lg);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.checkout-page .checkout-step__num {
+  flex: 1;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--yazi-acik);
+}
+
+.checkout-page .checkout-step__num span {
+  width: 40px;
+  height: 40px;
+  font-size: var(--font-size-base);
+  margin-right: var(--margin-xs);
+}
+
+.checkout-page .checkout-step__num.is-active {
+  color: var(--ana-renk);
+}
+
+.checkout-page .checkout-step__num.is-done {
+  color: var(--basari);
+}
+
+.checkout-page .checkout-panel {
+  padding: var(--padding-xl);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--margin-lg);
+}
+
+.checkout-page .checkout-panel h2 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--margin-lg);
+  padding-bottom: var(--padding-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.checkout-page .checkout-address-list {
+  margin-bottom: var(--margin-xl);
+}
+
+.checkout-page .checkout-address-list li {
+  padding: var(--padding) var(--padding-md);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: var(--margin-sm);
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.checkout-page .checkout-address-list li:hover,
+.checkout-page .checkout-address-list li:has(input:checked) {
+  border-color: var(--ana-renk);
+  background: var(--ana-soft);
+}
+
+.checkout-page .checkout-address-list label {
+  cursor: pointer;
+  display: block;
+  margin: 0;
+}
+
+.checkout-page .checkout-panel__sub {
+  margin-top: var(--margin-lg);
+  margin-bottom: var(--margin);
+  font-size: var(--font-size-sm);
+  color: var(--yazi-acik);
+}
+
+.checkout-page .checkout-panel .input {
+  margin-bottom: var(--margin);
+  border-radius: var(--radius);
+}
+
+.checkout-page #kart-alanlari {
+  display: grid;
+  grid-template-columns: 1fr 1fr 80px;
+  gap: var(--margin);
+  margin: var(--margin) 0 var(--margin-lg);
+}
+
+.checkout-page .checkout-radio {
+  padding: var(--padding) var(--padding-md);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: var(--margin-sm);
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.checkout-page .checkout-radio:hover {
+  border-color: var(--border-strong);
+  background: var(--gri-acik);
+}
+
+.checkout-page .checkout-radio:has(input:checked) {
+  border-color: var(--ana-renk);
+  background: var(--ana-soft);
+}
+
+.checkout-page .checkout-actions {
+  margin-top: var(--margin-xl);
+  padding-top: var(--margin-lg);
+  border-top: 1px solid var(--border);
+  gap: var(--margin);
+}
+
+.checkout-page .checkout-thanks {
+  padding: var(--padding-2xl);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--basari);
+  background: var(--basari-soft);
+  text-align: center;
+}
+
+.checkout-page .checkout-thanks h2 {
+  color: var(--basari);
+  margin-bottom: var(--margin);
+  font-size: var(--font-size-2xl);
+}
+
+.checkout-page .checkout-thanks p {
+  margin-bottom: var(--margin-xl);
+  font-size: var(--font-size-base);
+  color: var(--yazi);
+}
+
+.checkout-page .checkout-thanks .btn {
+  padding: var(--padding-md) var(--padding-xl);
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 640px) {
+  .checkout-page #kart-alanlari {
+    grid-template-columns: 1fr;
+  }
+}
