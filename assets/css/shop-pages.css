@@ -296,6 +296,110 @@
   }
 }
 
+/* Flash indirim */
+.home-page .flash-section {
+  background: linear-gradient(180deg, #fff7ed 0%, var(--arka) 100%);
+}
+
+.home-page .flash-countdown {
+  display: flex;
+  gap: var(--margin);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.home-page .flash-countdown span {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--padding-sm) var(--padding);
+  background: var(--yazi);
+  color: var(--beyaz);
+  border-radius: var(--radius);
+  min-width: 48px;
+}
+
+.home-page .flash-countdown span span {
+  font-size: var(--font-size-lg);
+  background: none;
+  color: inherit;
+}
+
+/* Orta banner */
+.home-page .middle-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: var(--ana-gradient);
+  padding: var(--padding-2xl);
+  text-decoration: none;
+  color: var(--beyaz);
+  border: none;
+}
+
+.home-page .middle-banner__content {
+  text-align: center;
+  max-width: 560px;
+}
+
+.home-page .middle-banner__eyebrow {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.9;
+  display: block;
+  margin-bottom: var(--margin-sm);
+}
+
+.home-page .middle-banner__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  margin: 0 0 var(--margin);
+  color: var(--beyaz);
+}
+
+.home-page .middle-banner__text {
+  margin: 0 0 var(--margin-lg);
+  opacity: 0.95;
+}
+
+.home-page .middle-banner .btn {
+  background: var(--beyaz);
+  color: var(--ana-renk);
+  border-color: var(--beyaz);
+}
+
+.home-page .middle-banner .btn:hover {
+  background: rgba(255,255,255,0.95);
+  color: var(--ana-hover);
+}
+
+/* Önerilen kategoriler */
+.home-page .recommended-categories .section-head {
+  margin-bottom: var(--margin-xl);
+}
+
+.home-page .category-mini-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin-2xl);
+}
+
+.home-page .category-mini__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin: 0 0 var(--margin-lg);
+}
+
+.home-page .category-mini__products {
+  margin-bottom: var(--margin);
+}
+
+.home-page .category-mini__products .product-card {
+  margin-bottom: 0;
+}
+
 /* Testimonials */
 .home-page .testimonials-section {
   background: var(--arka);
@@ -351,6 +455,16 @@
 @media (max-width: 992px) {
   .home-page .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+  .home-page .flash-section .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-page .category-mini__products.grid-4 {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

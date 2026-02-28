@@ -146,6 +146,51 @@
       </div>
     </section>
 
+    <section class="section flash-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>⚡ Flash İndirim</h2>
+          <div class="flash-countdown" id="flash-countdown">
+            <span><span id="flash-h">02</span>s</span>
+            <span><span id="flash-m">45</span>d</span>
+            <span><span id="flash-s">30</span>sn</span>
+          </div>
+        </div>
+        <div class="grid-4" id="vitrin-flash"></div>
+      </div>
+    </section>
+
+    <section class="section middle-banner-section">
+      <div class="container">
+        <a href="pages/giyim/index.html" class="card middle-banner">
+          <div class="middle-banner__content">
+            <span class="middle-banner__eyebrow">Özel Kampanya</span>
+            <h2 class="middle-banner__title">Yaz Koleksiyonu %40'a Varan İndirim</h2>
+            <p class="middle-banner__text">Seçili ürünlerde geçerli. Hemen keşfedin.</p>
+            <span class="btn btn-primary">Alışverişe Başla</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section recommended-categories">
+      <div class="container">
+        <div class="section-head"><h2>Önerilen Kategoriler</h2></div>
+        <div class="category-mini-grid">
+          <div class="category-mini">
+            <h3 class="category-mini__title">Giyim</h3>
+            <div class="grid-4 category-mini__products" id="rec-giyim"></div>
+            <a href="pages/giyim/index.html" class="link-accent">Tümünü Gör →</a>
+          </div>
+          <div class="category-mini">
+            <h3 class="category-mini__title">Market</h3>
+            <div class="grid-4 category-mini__products" id="rec-market"></div>
+            <a href="pages/market/index.html" class="link-accent">Tümünü Gör →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section stats-section">
       <div class="container">
         <div class="stats-grid">
@@ -286,7 +331,21 @@
       if (window.renderProductCards) {
         renderProductCards('vitrin-cok-satan', vitrinData, 'components/product-card.html');
         renderProductCards('vitrin-yeni', vitrinData.slice(0, 4), 'components/product-card.html');
+        renderProductCards('vitrin-flash', vitrinData.filter(function(p){ return p.discount >= 20; }).slice(0, 4), 'components/product-card.html');
+        renderProductCards('rec-giyim', vitrinData.slice(0, 4), 'components/product-card.html');
+        renderProductCards('rec-market', vitrinData.slice(0, 4), 'components/product-card.html');
       }
+      (function(){
+        var h=2,m=45,s=30;
+        var elH=document.getElementById('flash-h'),elM=document.getElementById('flash-m'),elS=document.getElementById('flash-s');
+        if(!elH)return;
+        setInterval(function(){
+          s--;if(s<0){s=59;m--;}if(m<0){m=59;h--;}if(h<0){h=2;m=45;s=30;}
+          elH.textContent=String(h).padStart(2,'0');
+          elM.textContent=String(m).padStart(2,'0');
+          elS.textContent=String(s).padStart(2,'0');
+        },1000);
+      })();
       var newsletterForm = document.getElementById('newsletter-form');
       if (newsletterForm) {
         newsletterForm.addEventListener('submit', function (e) {

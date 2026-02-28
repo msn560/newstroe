@@ -162,7 +162,10 @@
         if (window.updateThemeToggleLabel) updateThemeToggleLabel();
         document.getElementById('hamburger-btn') && document.getElementById('hamburger-btn').addEventListener('click', toggleMenu);
       }).catch(function () {});
-      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) { document.getElementById('footer-placeholder').innerHTML = html; }).catch(function () {});
+      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('footer-placeholder').innerHTML = html;
+        if (window.fixFooterLinks) fixFooterLinks(base);
+      }).catch(function () {});
       fetch(base + 'components/admin-sidebar.html').then(function (r) { return r.text(); }).then(function (html) {
         document.getElementById('admin-sidebar-placeholder').innerHTML = html;
         var active = document.querySelector('.user-nav a[data-admin-page="index"]');

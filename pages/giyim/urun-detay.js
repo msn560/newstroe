@@ -47,7 +47,37 @@
     else badge.style.display = 'none';
     var stock = p.stock != null ? p.stock : 10;
     document.getElementById('product-stock').textContent = stock > 5 ? 'Stokta' : (stock > 0 ? 'Son ' + stock + ' ürün' : 'Tükendi');
-    if (p.specs && p.specs.Beden) document.getElementById('product-beden').textContent = p.specs.Beden;
+    var bedenArr = p.beden || (p.specs && p.specs.Beden ? p.specs.Beden.split(/[,\s]+/) : ['S','M','L','XL']);
+    var renkArr = p.renk || ['Siyah','Beyaz','Mavi','Gri'];
+    var renkLabels = { siyah: 'Siyah', beyaz: 'Beyaz', mavi: 'Mavi', gri: 'Gri' };
+    var bedenEl = document.getElementById('beden-selector');
+    if (bedenEl) {
+      bedenEl.innerHTML = bedenArr.map(function (b) {
+        return '<button type="button" class="variant-btn" data-value="' + b + '">' + b + '</button>';
+      }).join('');
+      bedenEl.querySelectorAll('.variant-btn').forEach(function (btn, idx) {
+        btn.addEventListener('click', function () {
+          bedenEl.querySelectorAll('.variant-btn').forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+        });
+        if (idx === 0) btn.classList.add('is-active');
+      });
+    }
+    var renkEl = document.getElementById('renk-selector');
+    if (renkEl) {
+      renkEl.innerHTML = renkArr.map(function (r) {
+        var label = renkLabels[r] || r;
+        var style = r === 'siyah' ? 'background:#222' : (r === 'beyaz' ? 'background:#fff;border:1px solid var(--border)' : (r === 'mavi' ? 'background:#1a56db' : (r === 'gri' ? 'background:#6b7280' : '')));
+        return '<button type="button" class="variant-btn variant-btn--color" data-value="' + r + '" style="' + style + '" title="' + label + '"></button>';
+      }).join('');
+      renkEl.querySelectorAll('.variant-btn').forEach(function (btn, i) {
+        btn.addEventListener('click', function () {
+          renkEl.querySelectorAll('.variant-btn').forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+        });
+        if (i === 0) btn.classList.add('is-active');
+      });
+    }
     document.getElementById('main-img').src = p.img || PLACEHOLDER_IMG;
     document.getElementById('main-img').alt = p.title;
     document.getElementById('tab-aciklama').textContent = p.description || p.title + ' ürün açıklaması.';
