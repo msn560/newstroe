@@ -1,0 +1,197 @@
+/* Kullanıcı paneli — zengin içerik, dashboard */
+.user-panel-page .page-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--margin-xl);
+  padding-bottom: var(--margin-lg);
+  border-bottom: none;
+  position: relative;
+}
+
+.user-panel-page .page-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 4px;
+  background: var(--ana-gradient);
+  border-radius: var(--radius-full);
+}
+
+/* Quick actions */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--margin);
+  margin-bottom: var(--margin-xl);
+}
+
+.quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-lg);
+  background: var(--beyaz);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--yazi);
+  transition: var(--transition);
+  box-shadow: var(--shadow-xs);
+}
+
+.quick-action:hover {
+  border-color: var(--ana-renk);
+  color: var(--ana-renk);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.quick-action__icon {
+  font-size: 2rem;
+  margin-bottom: var(--margin-sm);
+  opacity: 0.9;
+}
+
+.quick-action__label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Activity feed */
+.activity-feed {
+  background: var(--beyaz);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--padding-lg);
+  box-shadow: var(--shadow-xs);
+}
+
+.activity-feed__title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin: 0 0 var(--margin-lg);
+  padding-bottom: var(--padding);
+  border-bottom: 1px solid var(--border);
+}
+
+.activity-item {
+  display: flex;
+  gap: var(--margin);
+  padding: var(--padding) 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--font-size-sm);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-item__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  background: var(--ana-soft);
+  color: var(--ana-renk);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+}
+
+.activity-item__content {
+  flex: 1;
+}
+
+.activity-item__title {
+  font-weight: 600;
+  color: var(--yazi);
+  margin: 0 0 var(--margin-xs);
+}
+
+.activity-item__meta {
+  color: var(--yazi-muted);
+  font-size: var(--font-size-xs);
+}
+
+/* Dashboard grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--margin-xl);
+  margin-top: var(--margin-lg);
+}
+
+.dashboard-card {
+  background: var(--beyaz);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--padding-lg);
+  box-shadow: var(--shadow-xs);
+}
+
+.dashboard-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin: 0 0 var(--margin);
+}
+
+/* Welcome banner */
+.welcome-banner {
+  background: var(--ana-gradient);
+  border-radius: var(--radius-xl);
+  padding: var(--padding-xl);
+  color: var(--beyaz);
+  margin-bottom: var(--margin-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.welcome-banner__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  margin: 0 0 var(--margin-sm);
+}
+
+.welcome-banner__subtitle {
+  font-size: var(--font-size-base);
+  opacity: 0.95;
+  margin: 0;
+}
+
+/* Promo card */
+.promo-card {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-lg);
+  padding: var(--padding-lg);
+  margin-top: var(--margin);
+}
+
+.promo-card__title {
+  font-weight: 700;
+  color: var(--basari);
+  margin: 0 0 var(--margin-sm);
+}
+
+.promo-card__text {
+  font-size: var(--font-size-sm);
+  color: var(--yazi-acik);
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .quick-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

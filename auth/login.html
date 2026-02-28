@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giriş Yap — Mağaza</title>
+  <meta name="description" content="Hesabınıza giriş yapın.">
+  <link rel="stylesheet" href="../assets/css/root.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/auth.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="page-wrapper auth-page">
+  <div id="header-placeholder"></div>
+
+  <main class="auth-main">
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-card__header">
+          <h1 class="auth-title">Hoş Geldiniz</h1>
+          <p class="auth-subtitle">Hesabınıza giriş yaparak alışverişe devam edin</p>
+        </div>
+        <form class="auth-form" id="login-form">
+          <div class="form-group">
+            <label class="input-label" for="email">E-posta</label>
+            <input type="email" id="email" name="email" class="input" placeholder="ornek@email.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="input-label" for="password">Şifre</label>
+            <input type="password" id="password" name="password" class="input" placeholder="••••••••" required autocomplete="current-password">
+          </div>
+          <div class="form-row">
+            <label class="checkbox-label">
+              <input type="checkbox" name="remember">
+              <span>Beni hatırla</span>
+            </label>
+            <a href="#" class="link-accent">Şifremi unuttum</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg auth-submit">Giriş Yap</button>
+        </form>
+        <div class="auth-footer">
+          <p>Hesabınız yok mu? <a href="register.html" class="link-accent">Üye Ol</a></p>
+        </div>
+      </div>
+      <div class="auth-decoration">
+        <div class="auth-decoration__content">
+          <span class="auth-decoration__icon">🛒</span>
+          <h2>Mağaza'ya Hoş Geldiniz</h2>
+          <p>Binlerce ürün, güvenli alışveriş. Giriş yaparak siparişlerinizi takip edin, favorilerinizi kaydedin.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../assets/js/common.js" defer></script>
+  <script src="../assets/js/auth.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var base = '../';
+      fetch(base + 'components/header.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        if (window.fixHeaderLinks) fixHeaderLinks(base);
+        if (window.updateHeaderBadges) updateHeaderBadges();
+        if (window.updateThemeToggleLabel) updateThemeToggleLabel();
+        var h = document.getElementById('hamburger-btn');
+        if (h) h.addEventListener('click', toggleMenu);
+      }).catch(function () {});
+      fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) {
+        document.getElementById('footer-placeholder').innerHTML = html;
+        if (window.fixFooterLinks) fixFooterLinks(base);
+      }).catch(function () {});
+    });
+  </script>
+</body>
+</html>

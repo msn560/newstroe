@@ -9,10 +9,11 @@
   <link rel="stylesheet" href="../assets/css/layout.css">
   <link rel="stylesheet" href="../assets/css/components.css">
   <link rel="stylesheet" href="../assets/css/responsive.css">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>body { font-family: var(--font); color: var(--yazi); margin: 0; }</style>
+  <link rel="stylesheet" href="../assets/css/user-panel.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body class="page-wrapper">
+<body class="page-wrapper user-panel-page">
   <div id="header-placeholder"></div>
 
   <main class="section">
@@ -20,24 +21,109 @@
       <div class="user-layout">
         <div id="user-sidebar-placeholder"></div>
         <div class="user-main">
-          <h1 class="page-title">Hesabım</h1>
+          <div class="welcome-banner">
+            <h1 class="welcome-banner__title">Merhaba, <span id="welcome-name">Kullanıcı</span>! 👋</h1>
+            <p class="welcome-banner__subtitle">Hesap özetiniz ve son aktiviteleriniz aşağıda.</p>
+          </div>
+
           <div class="stat-cards">
-            <div class="card stat-card"><div class="stat-card__value" id="stat-orders">0</div><div class="stat-card__label">Toplam Sipariş</div></div>
-            <div class="card stat-card"><div class="stat-card__value" id="stat-pending">0</div><div class="stat-card__label">Bekleyen</div></div>
-            <div class="card stat-card"><div class="stat-card__value" id="stat-fav">0</div><div class="stat-card__label">Favori</div></div>
-            <div class="card stat-card"><div class="stat-card__value" id="stat-balance">0 TL</div><div class="stat-card__label">Bakiye</div></div>
+            <div class="card stat-card">
+              <div class="stat-card__value" id="stat-orders">0</div>
+              <div class="stat-card__label">Toplam Sipariş</div>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-card__value" id="stat-pending">0</div>
+              <div class="stat-card__label">Bekleyen</div>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-card__value" id="stat-fav">0</div>
+              <div class="stat-card__label">Favori</div>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-card__value" id="stat-balance">0 TL</div>
+              <div class="stat-card__label">Bakiye</div>
+            </div>
           </div>
-          <h2 style="margin: 0 0 var(--margin); font-size: var(--font-size-lg);">Son Siparişler</h2>
-          <div class="card" style="overflow-x: auto;">
-            <table class="user-table">
-              <thead><tr><th>Sipariş No</th><th>Tarih</th><th>Ürün</th><th>Tutar</th><th>Durum</th></tr></thead>
-              <tbody id="son-siparisler">
-                <tr><td colspan="5" class="checkout-ozet">Henüz sipariş yok.</td></tr>
-              </tbody>
-            </table>
+
+          <div class="quick-actions">
+            <a href="siparisler.html" class="quick-action">
+              <span class="quick-action__icon">📦</span>
+              <span class="quick-action__label">Sipariş Takip</span>
+            </a>
+            <a href="favoriler.html" class="quick-action">
+              <span class="quick-action__icon">❤️</span>
+              <span class="quick-action__label">Favorilerim</span>
+            </a>
+            <a href="adresler.html" class="quick-action">
+              <span class="quick-action__icon">📍</span>
+              <span class="quick-action__label">Adreslerim</span>
+            </a>
+            <a href="kuponlar.html" class="quick-action">
+              <span class="quick-action__icon">🎫</span>
+              <span class="quick-action__label">Kuponlarım</span>
+            </a>
+            <a href="../cart.html" class="quick-action">
+              <span class="quick-action__icon">🛒</span>
+              <span class="quick-action__label">Sepetim</span>
+            </a>
+            <a href="../checkout.html" class="quick-action">
+              <span class="quick-action__icon">💳</span>
+              <span class="quick-action__label">Ödeme</span>
+            </a>
           </div>
+
+          <div class="dashboard-grid">
+            <div>
+              <h2 class="dashboard-card__title">Son Siparişler</h2>
+              <div class="card" style="overflow-x: auto;">
+                <table class="user-table">
+                  <thead>
+                    <tr>
+                      <th>Sipariş No</th>
+                      <th>Tarih</th>
+                      <th>Ürün</th>
+                      <th>Tutar</th>
+                      <th>Durum</th>
+                    </tr>
+                  </thead>
+                  <tbody id="son-siparisler">
+                    <tr>
+                      <td colspan="5" class="checkout-ozet">Henüz sipariş yok.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div>
+              <div class="activity-feed">
+                <h3 class="activity-feed__title">Son Aktiviteler</h3>
+                <div class="activity-item">
+                  <div class="activity-item__icon">👤</div>
+                  <div class="activity-item__content">
+                    <div class="activity-item__title">Hesap oluşturuldu</div>
+                    <div class="activity-item__meta">Bugün</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-item__icon">📧</div>
+                  <div class="activity-item__content">
+                    <div class="activity-item__title">E-posta doğrulandı</div>
+                    <div class="activity-item__meta">Bugün</div>
+                  </div>
+                </div>
+                <p class="checkout-ozet" style="padding: var(--padding); margin: 0;">Henüz sipariş aktivitesi yok.</p>
+              </div>
+              <div class="promo-card">
+                <div class="promo-card__title">🎁 İlk Siparişe %10 İndirim</div>
+                <p class="promo-card__text">İlk alışverişinizde KARSAM10 kuponunu kullanarak %10 indirim kazanın!</p>
+              </div>
+            </div>
+          </div>
+
           <h2 style="margin: var(--margin-xl) 0 var(--margin); font-size: var(--font-size-lg);">Bildirimler</h2>
-          <div class="card"><p class="checkout-ozet" style="margin: 0;">Bildirim bulunmuyor.</p></div>
+          <div class="card">
+            <p class="checkout-ozet" style="margin: 0;">Bildirim bulunmuyor.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -47,6 +133,7 @@
 
   <script src="../assets/js/common.js" defer></script>
   <script src="../assets/js/cart.js" defer></script>
+  <script src="../assets/js/auth.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var base = '../';
@@ -60,11 +147,21 @@
       }).catch(function () {});
       fetch(base + 'components/footer.html').then(function (r) { return r.text(); }).then(function (html) {
         document.getElementById('footer-placeholder').innerHTML = html;
+        if (window.fixFooterLinks) fixFooterLinks(base);
       }).catch(function () {});
       fetch(base + 'components/user-sidebar.html').then(function (r) { return r.text(); }).then(function (html) {
         document.getElementById('user-sidebar-placeholder').innerHTML = html;
         var link = document.querySelector('.user-nav a[data-user-page="index"]');
         if (link) link.classList.add('is-active');
+        if (window.updateUserDisplay) updateUserDisplay();
+        var user = window.getStoredUser ? window.getStoredUser() : null;
+        var welcomeEl = document.getElementById('welcome-name');
+        if (welcomeEl && user) welcomeEl.textContent = user.name ? user.name.split(' ')[0] : 'Kullanıcı';
+        try {
+          var favStr = localStorage.getItem('eticaret_fav');
+          var favCount = favStr ? JSON.parse(favStr).length : 0;
+          document.getElementById('stat-fav').textContent = favCount;
+        } catch (e) {}
       }).catch(function () {});
     });
   </script>

@@ -44,9 +44,23 @@
     }
   }
 
-  // ─── Toast bildirim ───
+  // ─── Toast bildirim (SweetAlert2 varsa kullan) ───
   function showToast(msg, type) {
     type = type || 'success';
+    if (typeof Swal !== 'undefined') {
+      var iconMap = { success: 'success', error: 'error', warning: 'warning' };
+      Swal.fire({
+        toast: true,
+        position: 'bottom-end',
+        icon: iconMap[type] || 'success',
+        title: msg,
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        customClass: { popup: 'swal-toast' }
+      });
+      return;
+    }
     var toast = document.createElement('div');
     toast.setAttribute('role', 'status');
     toast.className = 'toast toast-' + type;
@@ -56,9 +70,30 @@
     else if (type === 'error') toast.style.background = 'var(--hata)';
     else toast.style.background = 'var(--uyari)';
     document.body.appendChild(toast);
-    setTimeout(function () {
-      toast.remove();
-    }, 3000);
+    setTimeout(function () { toast.remove(); }, 3000);
+  }
+
+  // ─── SweetAlert2 onay modal ───
+  function showConfirm(options, onConfirm, onCancel) {
+    var opts = Object.assign({
+      title: options.title || 'Emin misiniz?',
+      text: options.text || '',
+      icon: options.icon || 'question',
+      confirmButtonText: options.confirmText || 'Evet',
+      cancelButtonText: options.cancelText || 'İptal',
+      confirmButtonColor: '#ea580c',
+      showCancelButton: true
+    }, options);
+    if (typeof Swal !== 'undefined') {
+      return Swal.fire(opts).then(function (result) {
+        if (result.isConfirmed && onConfirm) onConfirm();
+        else if (result.isDismissed && onCancel) onCancel();
+        return result;
+      });
+    }
+    if (window.confirm(opts.title + (opts.text ? '\n' + opts.text : ''))) {
+      if (onConfirm) onConfirm();
+    } else if (onCancel) onCancel();
   }
 
   // ─── Yardımcı ───
@@ -240,6 +275,22 @@
     if (form && form.getAttribute('action')) {
       form.setAttribute('action', (base + form.getAttribute('action')).replace(/\/+/g, '/'));
     }
+    initAuthHeader(base);
+  }
+
+  // ─── Giriş yapılmışsa header'da Hesabım göster ───
+  function initAuthHeader(base) {
+    base = base || '';
+    var user = null;
+    try { user = JSON.parse(localStorage.getItem('eticaret_user')); } catch (e) {}
+    if (!user) return;
+    var loginLink = document.querySelector('.header-actions a[href*="login"]');
+    var registerLink = document.querySelector('.header-actions a[href*="register"]');
+    if (loginLink) {
+      loginLink.textContent = 'Hesabım';
+      loginLink.href = (base + 'user/index.html').replace(/\/+/g, '/');
+    }
+    if (registerLink) registerLink.style.display = 'none';
   }
 
   function fixFooterLinks(base) {
@@ -293,6 +344,7 @@
   window.closeModal = closeModal;
   window.closeOnOverlay = closeOnOverlay;
   window.showToast = showToast;
+  window.showConfirm = showConfirm;
   window.formatPrice = formatPrice;
   window.formatDate = formatDate;
   window.debounce = debounce;

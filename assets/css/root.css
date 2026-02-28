@@ -1,36 +1,41 @@
-/* Modern e-ticaret tasarım sistemi — tek merkez */
+/* Modern e-ticaret tasarım sistemi — 2025 */
 :root {
-  /* Renkler — tutarlı kontrast */
-  --ana-renk:     #c2410c;
-  --ana-hover:    #9a3412;
-  --ana-soft:     rgba(194, 65, 12, 0.08);
-  --ana-soft-2:   rgba(194, 65, 12, 0.12);
-  --arka:         #fafafa;
+  /* Renkler — modern palet */
+  --ana-renk:     #ea580c;
+  --ana-hover:    #c2410c;
+  --ana-light:    #ff7b36;
+  --ana-soft:     rgba(234, 88, 12, 0.08);
+  --ana-soft-2:   rgba(234, 88, 12, 0.15);
+  --ana-gradient: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  --arka:         #f8fafc;
   --surface:      #ffffff;
-  --surface-hover:#f5f5f5;
-  --yazi:         #18181b;
-  --yazi-acik:    #52525b;
-  --yazi-muted:   #71717a;
+  --surface-hover:#f1f5f9;
+  --yazi:         #0f172a;
+  --yazi-acik:    #475569;
+  --yazi-muted:   #64748b;
   --beyaz:        #ffffff;
-  --gri:          #71717a;
-  --gri-acik:     #f4f4f5;
-  --border:       #e4e4e7;
-  --border-strong:#d4d4d8;
-  --hata:         #b91c1c;
-  --hata-soft:    rgba(185, 28, 28, 0.1);
-  --basari:       #15803d;
-  --basari-soft:  rgba(21, 128, 61, 0.1);
-  --uyari:        #c2410c;
-  --uyari-soft:   rgba(194, 65, 12, 0.1);
+  --gri:          #64748b;
+  --gri-acik:     #f1f5f9;
+  --border:       #e2e8f0;
+  --border-strong:#cbd5e1;
+  --hata:         #dc2626;
+  --hata-soft:    rgba(220, 38, 38, 0.1);
+  --basari:       #16a34a;
+  --basari-soft:  rgba(22, 163, 74, 0.1);
+  --uyari:        #ea580c;
+  --uyari-soft:   rgba(234, 88, 12, 0.1);
+  --info:         #0ea5e9;
+  --info-soft:    rgba(14, 165, 233, 0.1);
 
   /* Dark mode */
-  --dk-arka:      #09090b;
-  --dk-surface:   #18181b;
-  --dk-yazi:      #fafafa;
-  --dk-border:    #27272a;
+  --dk-arka:      #0f172a;
+  --dk-surface:   #1e293b;
+  --dk-surface-2: #334155;
+  --dk-yazi:      #f8fafc;
+  --dk-border:    #334155;
 
-  /* Tipografi — okunaklı hiyerarşi */
-  --font:         'Nunito', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Tipografi — Plus Jakarta Sans */
+  --font:         'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono:    ui-monospace, monospace;
   --font-size-xs:  0.75rem;
   --font-size-sm:  0.875rem;
@@ -39,6 +44,7 @@
   --font-size-xl:  1.25rem;
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
   --leading-tight:  1.25;
   --leading-normal: 1.5;
   --leading-relaxed: 1.625;
@@ -66,43 +72,51 @@
   --border-width-2: 2px;
 
   /* Radius — yumuşak köşeler */
-  --radius-sm:    6px;
-  --radius:       10px;
-  --radius-lg:    12px;
-  --radius-xl:    16px;
+  --radius-sm:    8px;
+  --radius:       12px;
+  --radius-lg:    16px;
+  --radius-xl:    20px;
   --radius-2xl:   24px;
+  --radius-3xl:   32px;
   --radius-full:  9999px;
 
-  /* Gölgeler — katmanlı, minimal */
-  --shadow-xs:    0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-sm:    0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow:       0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --shadow-md:    0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-  --shadow-lg:    0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-  --shadow-hover: 0 12px 24px -8px rgba(194, 65, 12, 0.2);
+  /* Gölgeler — katmanlı, modern */
+  --shadow-xs:    0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm:    0 2px 4px rgba(15, 23, 42, 0.06), 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow:       0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
+  --shadow-md:    0 12px 24px rgba(15, 23, 42, 0.1), 0 4px 12px rgba(15, 23, 42, 0.06);
+  --shadow-lg:    0 24px 48px rgba(15, 23, 42, 0.12), 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 16px 32px rgba(234, 88, 12, 0.15);
   --shadow-focus: 0 0 0 3px var(--ana-soft-2);
 
   /* Geçişler */
-  --transition:      all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition:      all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast:   0.15s;
-  --duration-normal: 0.2s;
-  --duration-slow:   0.25s;
+  --duration-normal: 0.25s;
+  --duration-slow:   0.3s;
 
   /* Layout */
   --container-max:  1280px;
-  --header-height:  64px;
+  --header-height:  72px;
   --sidebar-width:  280px;
 }
 
 [data-theme="dark"] {
   --arka:     var(--dk-arka);
   --beyaz:    var(--dk-surface);
+  --surface:  var(--dk-surface);
+  --surface-hover: var(--dk-surface-2);
   --yazi:     var(--dk-yazi);
+  --yazi-acik: #94a3b8;
+  --yazi-muted: #64748b;
   --border:   var(--dk-border);
-  --gri-acik: #27272a;
+  --gri-acik: var(--dk-surface-2);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* Temel sayfa tipografi */
@@ -114,6 +128,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--arka);
 }
 h1, h2, h3, h4 {
   font-weight: 700;

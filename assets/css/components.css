@@ -124,6 +124,10 @@
   margin-top: var(--margin);
 }
 .input-label:first-child { margin-top: 0; }
+.form-group {
+  margin-bottom: var(--margin);
+}
+.form-group:last-of-type { margin-bottom: 0; }
 
 /* Badge */
 .badge {
@@ -161,24 +165,35 @@
 .modal-overlay.is-open {
   opacity: 1;
   visibility: visible;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .modal {
   background: var(--beyaz);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   border: var(--border-width) solid var(--border);
   box-shadow: var(--shadow-lg);
   max-width: min(90vw, 480px);
   max-height: 90vh;
   overflow: auto;
-  transform: scale(0.96) translateY(8px);
+  transform: scale(0.96) translateY(12px);
   opacity: 0;
   transition: transform var(--duration-slow) var(--ease-out), opacity var(--duration-normal);
 }
 .modal-overlay.is-open .modal {
   transform: scale(1) translateY(0);
   opacity: 1;
+}
+
+/* SweetAlert2 özelleştirme */
+.swal2-popup.swal-toast {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.swal2-confirm {
+  background: var(--ana-gradient) !important;
+  border: none !important;
 }
 
 /* Ürün kartı */
